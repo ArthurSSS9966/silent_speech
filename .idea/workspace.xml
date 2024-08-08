@@ -4,28 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="22d7f079-3e08-4883-9533-9f2e191f6652" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/silent_speech.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scratch/librispeech-cache/test_phoneme_cache/index_mapping.pkl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scratch/librispeech-cache/test_phoneme_cache/instance.pkl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scratch/librispeech-cache/train_phoneme_cache/index_mapping.pkl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scratch/librispeech-cache/train_phoneme_cache/instance.pkl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scratch/librispeech-cache/val_phoneme_cache/index_mapping.pkl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scratch/librispeech-cache/val_phoneme_cache/instance.pkl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/architecture.py" beforeDir="false" afterPath="$PROJECT_DIR$/architecture.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataloaders.py" beforeDir="false" afterPath="$PROJECT_DIR$/dataloaders.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/environment.yml" beforeDir="false" afterPath="$PROJECT_DIR$/environment.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notebooks/tyler/2023-07-17_cache_dataset_with_attrs_.py" beforeDir="false" afterPath="$PROJECT_DIR$/notebooks/tyler/2023-07-17_cache_dataset_with_attrs_.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notebooks/tyler/2024-01-15_icml_models.py" beforeDir="false" afterPath="$PROJECT_DIR$/notebooks/tyler/2024-01-15_icml_models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notebooks/tyler/2024-01-26_icml_pred.py" beforeDir="false" afterPath="$PROJECT_DIR$/notebooks/tyler/2024-01-26_icml_pred.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notebooks/tyler/2024-01-28_icml_figures.py" beforeDir="false" afterPath="$PROJECT_DIR$/notebooks/tyler/2024-01-28_icml_figures.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/read_emg.py" beforeDir="false" afterPath="$PROJECT_DIR$/read_emg.py" afterDir="false" />
-    </list>
+    <list default="true" id="22d7f079-3e08-4883-9533-9f2e191f6652" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -53,29 +32,32 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.2023-07-17_cache_dataset_with_attrs_.executor": "Run",
-    "Python.2024-01-15_icml_models (1).executor": "Run",
-    "Python.2024-01-15_icml_models.executor": "Run",
-    "Python.Test_Transformer.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "ignore.virus.scanning.warn.message": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.2023-07-17_cache_dataset_with_attrs_.executor&quot;: &quot;Run&quot;,
+    &quot;Python.2024-01-15_icml_models (1).executor&quot;: &quot;Run&quot;,
+    &quot;Python.2024-01-15_icml_models.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Test_Transformer.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Python.2024-01-15_icml_models">
     <configuration name="2023-07-17_cache_dataset_with_attrs_" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="silent_speech" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/notebooks/tyler" />
       <option name="IS_MODULE_SDK" value="true" />
@@ -96,6 +78,9 @@
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="true" />
