@@ -32,15 +32,11 @@ from torch.utils.data import DataLoader
 
 from dataloaders import cache_dataset
 
-# DATA_FOLDER    = '/scratch/GaddyPaper'
-DATA_FOLDER = os.path.join(os.environ["SCRATCH"], "GaddyPaper")
-# project_folder = '/home/tyler/code/silent_speech'
-project_folder = "/home/users/tbenst/code/silent_speech/"
+DATA_FOLDER = "D:/BlcRepo/OtherCode/Generative_Neuroscience/Dataset"
+project_folder = "D:/BlcRepo/OtherCode/Generative_Neuroscience/silent_speech"
 
 REMOVE_CHANNELS = []
 SILENT_DATA_DIRECTORIES = [f"{DATA_FOLDER}/emg_data/silent_parallel_data"]
-# VOICED_DATA_DIRECTORIES = [f'{DATA_FOLDER}/emg_data/voiced_parallel_data',
-#                                               f'{DATA_FOLDER}/emg_data/nonparallel_data']
 # we include voiced parallel data in each example of silent data
 # this is for convenience in the dataloader
 VOICED_DATA_DIRECTORIES = [f"{DATA_FOLDER}/emg_data/nonparallel_data"]

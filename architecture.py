@@ -2,18 +2,19 @@ import random
 import torch, numpy as np
 from torch import nn
 import torch.nn.functional as F
-from transformer import TransformerEncoderLayer
+# from transformer import TransformerEncoderLayer
+from torch.nn import TransformerEncoderLayer
 from data_utils import combine_fixed_length, decollate_tensor
 
 import sys, os, jiwer
 import pytorch_lightning as pl, torchmetrics
 from torchaudio.models.decoder import ctc_decoder
 from torchaudio.functional import edit_distance
-# from s4 import S4
+from s4 import S4
 from data_utils import TextTransform, token_error_rate
-from magneto.models.hyena import HyenaOperator
-from flash_attn.modules.block import Block
-from magneto.models.s4d import S4D
+# from magneto.models.hyena import HyenaOperator
+# from flash_attn.modules.block import Block
+# from magneto.models.s4d import S4D
 
 from pytorch_lightning.profilers import PassThroughProfiler
 from dataclasses import dataclass
@@ -1262,8 +1263,8 @@ class MONA(GaddyBase):
         encoder_layer = TransformerEncoderLayer(
             d_model=cfg.d_model,
             nhead=cfg.num_heads,
-            relative_positional=True,
-            relative_positional_distance=100,
+            # relative_positional=True,
+            # relative_positional_distance=100,
             dim_feedforward=cfg.d_inner,
             dropout=cfg.dropout,
             # beta=1/np.sqrt(2)

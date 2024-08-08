@@ -1,10 +1,6 @@
 # given list of Neptune run-ids, save val & test predictions to disk for the
 # best checkpoint of each run
 
-##
-%load_ext autoreload
-%autoreload 2
-##
 import os, subprocess
 
 # os.environ["PYTORCH_CUDA_ALLOC_CONF"] = "backend:cudaMallocAsync" # no OOM
@@ -59,7 +55,7 @@ from data_utils import TextTransform, in_notebook
 from typing import List
 from collections import defaultdict
 from enum import Enum
-from magneto.preprocessing import ensure_data_on_scratch
+# from magneto.preprocessing import ensure_data_on_scratch
 from dataloaders import (
     LibrispeechDataset,
     EMGAndSpeechModule,

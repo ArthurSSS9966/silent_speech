@@ -1,6 +1,3 @@
-##
-2  # this notebook can replace all previous librispeech caching notebooks
-##
 import os, pickle, sys, torch
 
 # horrible hack to get around this repo not being a proper python package
@@ -9,14 +6,11 @@ sys.path.append(SCRIPT_DIR)
 from data_utils import TextTransform
 from dataloaders import LibrispeechDataset, cache_dataset
 from datasets import load_dataset
-import subprocess
-from tqdm import tqdm
-
-hostname = subprocess.run("hostname", capture_output=True)
-ON_SHERLOCK = hostname.stdout[:2] == b"sh"
 
 ##
-librispeech_datasets = load_dataset("librispeech_asr")
+print("Loading datasets...")
+librispeech_datasets = load_dataset("librispeech_asr", cache_dir="D:/Blcdata/hf_cache")
+
 librispeech_train = torch.utils.data.ConcatDataset(
     [
         librispeech_datasets["train.clean.100"],
@@ -30,36 +24,28 @@ librispeech_clean_test = librispeech_datasets["test.clean"]
 normalizers_file = os.path.join(SCRIPT_DIR, "normalizers.pkl")
 mfcc_norm, emg_norm = pickle.load(open(normalizers_file, "rb"))
 text_transform = TextTransform(togglePhones=False)
+
 ##
-if ON_SHERLOCK:
-    sessions_dir = "/oak/stanford/projects/babelfish/magneto/"
-    # scratch_directory = os.environ["SCRATCH"]
-    # for speed, careful to transfer data from LOCAL_SCRATCH to SCRATCH
-    # before running or else will expire after job ends.
-    # SCRATCH up to 90 days
-    scratch_directory = os.environ["LOCAL_SCRATCH"]
-    gaddy_dir = "/oak/stanford/projects/babelfish/magneto/GaddyPaper/"
-else:
-    sessions_dir = "/data/magneto/"
-    scratch_directory = "/scratch"
-    gaddy_dir = "/scratch/GaddyPaper/"
+scratch_directory = "D:\\BlcRepo\\OtherCode\\Generative_Neuroscience\\silent_speech\\scratch"
+librispeech_directory = "D:/Blcdata/hf_cache"
 
 librispeech_train_cache = os.path.join(
-    scratch_directory, "librispeech-cache", "2024-01-23_librispeech_noleak_train_phoneme_cache"
+    librispeech_directory, "librispeech-cache", "train_phoneme_cache"
 )
 librispeech_val_cache = os.path.join(
-    scratch_directory, "librispeech-cache", "2024-01-23_librispeech_noleak_val_phoneme_cache"
+    librispeech_directory, "librispeech-cache", "val_phoneme_cache"
 )
-# librispeech_val_cache = os.path.join(scratch_directory, "librispeech-cache",
-#   "librispeech_val_phoneme_cache.pkl")
 librispeech_test_cache = os.path.join(
-    scratch_directory, "librispeech-cache", "2024-01-23_librispeech_noleak_test_phoneme_cache"
+    librispeech_directory, "librispeech-cache", "test_phoneme_cache"
 )
-alignment_dir = os.path.join(scratch_directory, "librispeech-alignments")
+alignment_dir = os.path.join(librispeech_directory, "librispeech-alignments")
 
 ##
 alignment_dirs = [os.path.join(alignment_dir, d) for d in os.listdir(alignment_dir)]
 per_index_cache = True
+
+print("Caching Val...")
+
 cached_speech_val = cache_dataset(
     librispeech_val_cache,
     LibrispeechDataset,
@@ -77,6 +63,9 @@ cached_speech_val = cache_dataset(
     }
 )
 del cached_speech_val
+print("Done")
+
+print("Caching Train...")
 cached_speech_train = cache_dataset(
     librispeech_train_cache,
     LibrispeechDataset,
@@ -92,6 +81,9 @@ cached_speech_train = cache_dataset(
     }
 )
 del cached_speech_train
+print("Done")
+
+print("Caching Test...")
 cached_speech_test = cache_dataset(
     librispeech_test_cache,
     LibrispeechDataset,

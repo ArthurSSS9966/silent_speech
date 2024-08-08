@@ -1,4 +1,4 @@
-name: gaddy
+name: silent_speech
 channels:
   - conda-forge
 dependencies:

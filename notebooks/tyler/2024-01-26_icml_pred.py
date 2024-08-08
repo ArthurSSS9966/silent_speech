@@ -59,7 +59,7 @@ from data_utils import TextTransform, in_notebook
 from typing import List
 from collections import defaultdict
 from enum import Enum
-from magneto.preprocessing import ensure_data_on_scratch
+# from magneto.preprocessing import ensure_data_on_scratch
 from dataloaders import (
     LibrispeechDataset,
     EMGAndSpeechModule,
@@ -182,29 +182,12 @@ def load_dataloaders(max_len=128000, togglePhones=False):
 run_ids = [
     #### crossCon + supTcon + DTW ####
     823, 822, 844, 839, 887,
-    # 816 extra, drop per criteria
-    #### crossCon + supTcon ####
-    815, 831, 908, 867, 825,
-    # 840, # skip, logging issue
-    #### crossCon ####
-    835, 841, 818, 868, 936,
-    # 850, # skip
-    #### supTcon ####
-    890, 891, 904, 905, 897,
-    # 896 # skip
-    #### supTcon + DTW ####
-    907, 906, 921, 922, 920,
     #### EMG + Audio ####
     871, 848, 861, 881, 926,
-    # 837, 827 # drop per selection criteria
     #### EMG + Audio (no librispeech ####
     960, 961, 962, 963, 964,
     #### EMG ####
     888, 893, 944, 943, 942,
-    # 863, 832, 819, 852, # issues with runs
-
-    #### EMG (no librispeech ####
-    965, 967, 968, 969, 966,
 
     ######## quest for the best ##########
     #### crossCon 256k ####
