@@ -1,5 +1,4 @@
 from typing import Optional
-
 import torch
 from torch import nn
 import torch.nn.functional as F
@@ -28,7 +27,8 @@ class TransformerEncoderLayer(nn.Module):
     def __init__(self, d_model, nhead, dim_feedforward=2048, dropout=0.1, relative_positional=True, relative_positional_distance=100,
                  beta:float=1.):
         super(TransformerEncoderLayer, self).__init__()
-        self.self_attn = MultiHeadAttention(d_model, nhead, dropout=dropout, relative_positional=relative_positional, relative_positional_distance=relative_positional_distance)
+        self.self_attn = MultiHeadAttention(d_model, nhead, dropout=dropout, relative_positional=relative_positional,
+                                            relative_positional_distance=relative_positional_distance)
         # Implementation of Feedforward model
         self.linear1 = nn.Linear(d_model, dim_feedforward)
         self.dropout = nn.Dropout(dropout)
@@ -42,6 +42,7 @@ class TransformerEncoderLayer(nn.Module):
         # https://iclr-blog-track.github.io/2022/03/25/unnormalized-resnets/#moment-control
         self.beta = beta
         self.activation = nn.ReLU()
+        self.batch_first = False
 
     def forward(self, src: torch.Tensor, src_mask: Optional[torch.Tensor] = None, src_key_padding_mask: Optional[torch.Tensor] = None, is_causal=None) -> torch.Tensor:
         r"""Pass the input through the encoder layer.
@@ -66,6 +67,7 @@ class MultiHeadAttention(nn.Module):
   def __init__(self, d_model=256, n_head=4, dropout=0.1, relative_positional=True, relative_positional_distance=100):
     super().__init__()
     self.d_model = d_model
+    self.batch_first = True
     self.n_head = n_head
     d_qkv = d_model // n_head
     assert d_qkv * n_head == d_model, 'd_model must be divisible by n_head'

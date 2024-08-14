@@ -1,0 +1,7 @@
+name: silent_speech
+channels:
+  - conda-forge
+dependencies:
+  - libsndfile
+  - pip:
+    - -r requirements.txt

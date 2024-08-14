@@ -278,7 +278,7 @@ if rank == 0:
     os.makedirs(output_directory, exist_ok=True)
 
 
-# must run 2023-07-17_cache_dataset_with_attrs_.py first
+# must run cache_dataset_with_attrs_local_version.py first
 librispeech_train_cache = os.path.join(scratch_directory, "librispeech", "librispeech_960_train_phoneme_cache")
 librispeech_val_cache = os.path.join(scratch_directory, "librispeech", "librispeech_val_phoneme_cache")
 librispeech_test_cache = os.path.join(scratch_directory, "librispeech", "librispeech_test_phoneme_cache")

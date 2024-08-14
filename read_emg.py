@@ -32,8 +32,12 @@ from torch.utils.data import DataLoader
 
 from dataloaders import cache_dataset
 
-DATA_FOLDER = "D:/BlcRepo/OtherCode/Generative_Neuroscience/Dataset"
-project_folder = "D:/BlcRepo/OtherCode/Generative_Neuroscience/silent_speech"
+# Set os.environ["DATA"] to this path this envir is not defined:
+if "DATA" not in os.environ:
+    os.environ["DATA_DIR"] = "/dataFolder"
+
+DATA_FOLDER = os.environ["DATA"]
+project_folder = os.getcwd()
 
 REMOVE_CHANNELS = []
 SILENT_DATA_DIRECTORIES = [f"{DATA_FOLDER}/emg_data/silent_parallel_data"]

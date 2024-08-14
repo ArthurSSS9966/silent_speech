@@ -1081,6 +1081,9 @@ def emg_speech_dset_lengths(dset: torch.utils.data.Dataset):
     Useful as contrastive loss is quadratic in length of latent space.
     """
     lengths = []
+    # check if lengths file exists
+    if os.path.exists("lengths.pkl"):
+        return pickle.load(open("lengths.pkl", "rb"))
     for d in tqdm(dset, desc="calc lengths for sampler"):
         if "silent" in d:
             new_len = d["raw_emg"].shape[0] // 8
@@ -1107,6 +1110,10 @@ def emg_speech_dset_lengths(dset: torch.utils.data.Dataset):
             # lengths.append(emg_z_len + audio_z_len)
             # WARN/TODO: for EMG only
             lengths.append(emg_z_len)
+
+    # store the lengths
+    pickle.dump(lengths, open("lengths.pkl", "wb"))
+
     return lengths
 
 

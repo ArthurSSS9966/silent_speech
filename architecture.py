@@ -2,8 +2,8 @@ import random
 import torch, numpy as np
 from torch import nn
 import torch.nn.functional as F
-# from transformer import TransformerEncoderLayer
-from torch.nn import TransformerEncoderLayer
+from transformer import TransformerEncoderLayer
+# from torch.nn import TransformerEncoderLayer
 from data_utils import combine_fixed_length, decollate_tensor
 
 import sys, os, jiwer
@@ -318,6 +318,9 @@ class XtoText(pl.LightningModule):
             sync_dist=True,
         )
         torch.cuda.empty_cache()
+
+        print(f"Train loss: {loss}")
+
         return loss
 
     def on_validation_epoch_start(self):
@@ -363,7 +366,7 @@ class XtoText(pl.LightningModule):
         pred_texts, pred_ints = self._beam_search_pred(pred.cpu())
         pred_texts = [self.text_transform.clean_text(b) for b in pred_texts]
         target_texts = [self.text_transform.clean_text(b) for b in batch_text]
-        # print(f"text: {batch['text']}; target_text: {target_text}; pred_text: {pred_text}")
+        print(f"text: {batch['text']}; target_text: {target_texts[0]}; pred_text: {pred_texts[0]}")
 
         # sanity check lengths
         lens = [
@@ -442,6 +445,8 @@ class XtoText(pl.LightningModule):
             batch_size=audio_bz,
             sync_dist=True,
         )
+
+        print(f"Val loss: {loss}")
 
         return loss
 
@@ -955,82 +960,82 @@ class S4Model(nn.Module):
             return self.w_out(x)
 
 
-sys.path.append("/home/users/ghwilson/repos/safari/src/models/sequence/")
-sys.path.append("/home/users/ghwilson/repos/safari/")
-try:
-    from h3 import H3
-except:
-    print("Could not import H3")
-
-
-class H3Model(nn.Module):
-    def __init__(self, num_features, num_outs, num_aux_outs=None):
-        super().__init__()
-        self.prenorm = False
-
-        # Linear encoder
-        self.encoder = nn.Linear(8, MODEL_SIZE)
-
-        # Stack S4 layers as residual blocks
-        self.h3_layers = nn.ModuleList()
-        self.norms = nn.ModuleList()
-        self.dropouts = nn.ModuleList()
-        self.linears = nn.ModuleList()
-        for i in range(NUM_LAYERS):
-            self.h3_layers.append(H3(d_model=MODEL_SIZE, dropout=DROPOUT, lr=None))
-            self.norms.append(nn.LayerNorm(MODEL_SIZE))
-            self.dropouts.append(nn.Dropout1d(DROPOUT))
-
-        self.w_out = nn.Linear(MODEL_SIZE, num_outs)
-
-        self.has_aux_out = num_aux_outs is not None
-        if self.has_aux_out:
-            self.w_aux = nn.Linear(MODEL_SIZE, num_aux_outs)
-
-    def forward(self, x_raw):
-        # x shape is (batch, time, electrode)
-
-        if self.training:
-            r = random.randrange(8)
-            if r > 0:
-                x_raw[:, :-r, :] = x_raw[:, r:, :]  # shift left r
-                x_raw[:, -r:, :] = 0
-
-        x = self.encoder(x_raw)
-        # x = x.transpose(-1, -2)  # (B, L, d_model) -> (B, d_model, L)
-        for i, (layer, norm, dropout) in enumerate(
-            zip(self.h3_layers, self.norms, self.dropouts)
-        ):
-            z = x
-            if self.prenorm:
-                # Prenorm
-                z = norm(z)
-
-            # Apply H3 block
-            # print(z.shape)
-            z = layer(z)
-            # print('Passed layer', i)
-            # print(z.shape)
-
-            # Dropout on the output of the S4 block
-            z = dropout(z)
-
-            # Residual connection
-            x = z + x
-
-            if not self.prenorm:
-                # Postnorm
-                x = norm(x)
-
-            if i < 3:
-                x = x[:, ::2, :]
-
-        # x = x.transpose(-1, -2)
-
-        if self.has_aux_out:
-            return self.w_out(x), self.w_aux(x)
-        else:
-            return self.w_out(x)
+# sys.path.append("/home/users/ghwilson/repos/safari/src/models/sequence/")
+# sys.path.append("/home/users/ghwilson/repos/safari/")
+# try:
+#     from h3 import H3
+# except:
+#     print("Could not import H3")
+#
+#
+# class H3Model(nn.Module):
+#     def __init__(self, num_features, num_outs, num_aux_outs=None):
+#         super().__init__()
+#         self.prenorm = False
+#
+#         # Linear encoder
+#         self.encoder = nn.Linear(8, MODEL_SIZE)
+#
+#         # Stack S4 layers as residual blocks
+#         self.h3_layers = nn.ModuleList()
+#         self.norms = nn.ModuleList()
+#         self.dropouts = nn.ModuleList()
+#         self.linears = nn.ModuleList()
+#         for i in range(NUM_LAYERS):
+#             self.h3_layers.append(H3(d_model=MODEL_SIZE, dropout=DROPOUT, lr=None))
+#             self.norms.append(nn.LayerNorm(MODEL_SIZE))
+#             self.dropouts.append(nn.Dropout1d(DROPOUT))
+#
+#         self.w_out = nn.Linear(MODEL_SIZE, num_outs)
+#
+#         self.has_aux_out = num_aux_outs is not None
+#         if self.has_aux_out:
+#             self.w_aux = nn.Linear(MODEL_SIZE, num_aux_outs)
+#
+#     def forward(self, x_raw):
+#         # x shape is (batch, time, electrode)
+#
+#         if self.training:
+#             r = random.randrange(8)
+#             if r > 0:
+#                 x_raw[:, :-r, :] = x_raw[:, r:, :]  # shift left r
+#                 x_raw[:, -r:, :] = 0
+#
+#         x = self.encoder(x_raw)
+#         # x = x.transpose(-1, -2)  # (B, L, d_model) -> (B, d_model, L)
+#         for i, (layer, norm, dropout) in enumerate(
+#             zip(self.h3_layers, self.norms, self.dropouts)
+#         ):
+#             z = x
+#             if self.prenorm:
+#                 # Prenorm
+#                 z = norm(z)
+#
+#             # Apply H3 block
+#             # print(z.shape)
+#             z = layer(z)
+#             # print('Passed layer', i)
+#             # print(z.shape)
+#
+#             # Dropout on the output of the S4 block
+#             z = dropout(z)
+#
+#             # Residual connection
+#             x = z + x
+#
+#             if not self.prenorm:
+#                 # Postnorm
+#                 x = norm(x)
+#
+#             if i < 3:
+#                 x = x[:, ::2, :]
+#
+#         # x = x.transpose(-1, -2)
+#
+#         if self.has_aux_out:
+#             return self.w_out(x), self.w_aux(x)
+#         else:
+#             return self.w_out(x)
 
 
 def is_str(s):
@@ -1263,8 +1268,8 @@ class MONA(GaddyBase):
         encoder_layer = TransformerEncoderLayer(
             d_model=cfg.d_model,
             nhead=cfg.num_heads,
-            # relative_positional=True,
-            # relative_positional_distance=100,
+            relative_positional=True,
+            relative_positional_distance=100,
             dim_feedforward=cfg.d_inner,
             dropout=cfg.dropout,
             # beta=1/np.sqrt(2)

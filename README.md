@@ -6,34 +6,38 @@ Model (LLM) Integrated Scoring Adjustment
 
 [See the preprint on arxiv](https://arxiv.org/abs/2403.05583).
 
-### Paper reproduction
-First you will need to download the [Gaddy 2020 dataset](https://doi.org/10.5281/zenodo.4064408) Then, the following scripts can be modified and run in order on SLURM or a local machine. An individual model trains on one A100 for 24-48 hours depending on loss functions (supTcon increases train time by ~75%). The full model sweep as done in the paper trains 60 models.
-0) Download the lexicon.txt, tokens.txt, lm.binary using:
+## Training Procedure
+Download the lexicon.txt, tokens.txt, lm.binary using:
 ```
 from torchaudio.models.decoder import download_pretrained_files
 download_pretrained_files("librispeech-4-gram")
 ```
 Then in the folder of 'librispeech-4-gram' you will find the files, copy and paste in the main folder
-1) Download the emg_speech alignment data from [here](https://github.com/dgaddy/silent_speech_alignments/tree/5c71ae9fcbb94e74e19eb9547c3b404baf6126a7)
-1) Download the librispeech alignment data from [here](https://github.com/CorentinJ/librispeech-alignments)
-2) run `2023-07-17_cache_dataset_with_attrs_.py`
-3) run `2024-01-15_icml_models.py`
-4) run `notebooks/tyler/2024-01-26_icml_pred.py`
-5) run `notebooks/tyler/batch_beam_search.sh` (`2024-01-26_icml_beams.py`)
-6) run `notebooks/tyler/2024-01-28_icml_figures.py`
-7) run `notebooks/tyler/2024-01-31_icml_TEST.py`
+0) build the environment based on the below steps
+1) run `cache_datasetVMversion/local_version.py`
+2) run `icml_models_VMversion/local_version.py`
 
-The [final competition WER was 8.9%](https://eval.ai/web/challenges/challenge-page/2099/leaderboard/4944), which at time of writing is rank 1.
+[//]: # (3&#41; run `notebooks/tyler/2024-01-26_icml_pred.py`)
 
-## Environment Setup
+[//]: # (4&#41; run `notebooks/tyler/batch_beam_search.sh` &#40;`2024-01-26_icml_beams.py`&#41;)
 
-### alternate setup
-First build the `environment.yml`. Then, 
-```
-> conda install libsndfile -c conda-forge
-> 
-> pip install jiwer torchaudio matplotlib scipy soundfile absl-py librosa numba unidecode praat-textgrids g2p_en einops opt_einsum hydra-core pytorch_lightning "neptune-client==0.16.18"
-```
+[//]: # (5&#41; run `notebooks/tyler/2024-01-28_icml_figures.py`)
+
+[//]: # (6&#41; run `notebooks/tyler/2024-01-31_icml_TEST.py`)
+
+## Environment setup (In VM)
+
+0. Make the data directory to store the data: mkdir dataFolder
+1. Run the `bash setup.sh`, it will install the necessary environment and download the data
+2. Then you will need to download the [Gaddy 2020 dataset](https://doi.org/10.5281/zenodo.4064408) manually
+3. Transfer the .tar.gz file to the VM using command:
+`scp -i ~/.ssh/{key.perm} /path/to/file.tar.gz {user}@{localhost}:/path/to/destination`
+4. Extract the .tar.gz file using command:
+`unzip /path/to/file.zip -d /dataFoler`
+5. Download the librispeech alignment data from [Montreal Force Alignment](https://drive.google.com/file/d/1OgfXbTYhgp8NW5fRTt_TXwViraOyVEyY/view) manually
+6. Transfer the data using the same command
+7. Extract the data using the same command
+
 
 
 ## Explanation of model outputs for CTC loss
@@ -48,33 +52,5 @@ Example model prediction (argmax last dim) of shape `(1821, 38)`:
 
 `______________________________________________________________a__f___tt__eerr|||b__rr_eaaakk___ff____aa____ss_tt___________________||____a_nd__|_ssttt___eaa_dd_||ooff||ww___o_rr_____kk_____ii___nngg________________________||_____a____t__||_______c______i___d_____eedd__________||tt___o__||_w_____a______l_kkk____________________||______o______w__t______________|||t____oowwwaarrrdddsss____||thhee_|||c_____o___mm__mm___oo_nn___________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________`
 
-Beam search gives, ' after breakfast and stead of working at cided to walk owt towards the common ', which here is same as result from "best path decoding" (argmax), but in theory could be different since sums probability of multiple alignments and is therefore more accurate.
+Beam search gives, `after breakfast and stead of working at cided to walk owt towards the common`, which here is same as result from "best path decoding" (argmax), but in theory could be different since sums probability of multiple alignments and is therefore more accurate.
 
-
-### Montreal forced aligner
-Instructions for getting phoneme alignments
-
-
-https://montreal-forced-aligner.readthedocs.io/en/latest/first_steps/index.html#first-steps-align-pretrained
-
-```
-> conda create -n mfa -c conda-forge montreal-forced-aligner
-> mfa model download acoustic english_us_arpa
-> mfa model download dictionary english_us_arpa
-> mfa validate --single_speaker -j 32 /data/data/T12_data/synthetic_audio/TTS english_us_arpa english_us_arpa
-> mfa model download g2p english_us_arpa
-> mfa g2p --single_speaker /data/data/T12_data/synthetic_audio/TTS english_us_arpa ~/Documents/MFA/TTS/oovs_found_english_us_arpa.txt --dictionary_path english_us_arpa
-> mfa model add_words english_us_arpa ~/mfa_data/g2pped_oovs.txt
-> mfa adapt --single_speaker -j 32 /data/data/T12_data/synthetic_audio/TTS english_us_arpa english_us_arpa /data/data/T12_data/synthetic_audio/adapted_bark_english_us_arpa
-> mfa validate --single_speaker -j 32 /data/data/T12_data/synthetic_audio/TTS english_us_arpa english_us_arpa
-# ensure no OOV (I had to manually correct a transcript due to a `{`)
-> mfa adapt --single_speaker -j 32 --output_directory /data/data/T12_data/synthetic_audio/TTS /data/data/T12_data/synthetic_audio/TTS english_us_arpa english_us_arpa /data/data/T12_data/synthetic_audio/adapted_bark_english_us_arpa
-
-### misc
-
-Fast transfer of cache on sherlock to local NVME
-```
-cd $MAG/librispeech
-find . -type f | parallel -j 16 rsync -avPR {} $LOCAL_SCRATCH/librispeech/
-```
-find . -type f | parallel -j 16 rsync -avPR {} $SCRATCH/librispeech/

@@ -1,15 +1,16 @@
 import os, pickle, sys, torch
 
 # horrible hack to get around this repo not being a proper python package
-SCRIPT_DIR = os.path.dirname(os.path.dirname(os.getcwd()))
+SCRIPT_DIR = os.getcwd()
 sys.path.append(SCRIPT_DIR)
 from data_utils import TextTransform
 from dataloaders import LibrispeechDataset, cache_dataset
 from datasets import load_dataset
 
+librispeech_directory = "D:/Blcdata/hf_cache"
 ##
 print("Loading datasets...")
-librispeech_datasets = load_dataset("librispeech_asr", cache_dir="D:/Blcdata/hf_cache")
+librispeech_datasets = load_dataset("librispeech_asr", cache_dir=librispeech_directory)
 
 librispeech_train = torch.utils.data.ConcatDataset(
     [
@@ -26,8 +27,7 @@ mfcc_norm, emg_norm = pickle.load(open(normalizers_file, "rb"))
 text_transform = TextTransform(togglePhones=False)
 
 ##
-scratch_directory = "D:\\BlcRepo\\OtherCode\\Generative_Neuroscience\\silent_speech\\scratch"
-librispeech_directory = "D:/Blcdata/hf_cache"
+scratch_directory = "/scratch"
 
 librispeech_train_cache = os.path.join(
     librispeech_directory, "librispeech-cache", "train_phoneme_cache"

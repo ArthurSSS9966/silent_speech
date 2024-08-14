@@ -9,15 +9,19 @@ from torch.utils.data import DistributedSampler
 # horrible hack to get around this repo not being a proper python package
 SCRIPT_DIR = os.getcwd()
 sys.path.append(SCRIPT_DIR)
+# on my local machine
+scratch_directory = "D:\\BlcRepo\\OtherCode\\Generative_Neuroscience\\silent_speech\\scratch"
+lm_directory = "D:\\BlcRepo\\OtherCode\\Generative_Neuroscience\\silent_speech"
+SLURM_REQUEUE = False
+# Set the local data directory environment variable
+os.environ["DATA_DIR"] = "D:/Blcdata/hf_cache"
+librispeech_directory = os.environ["DATA_DIR"]
 
-from read_emg import (
-    EMGDataModule
-)
+from read_emg import EMGDataModule
 from architecture import MONAConfig, MONA
 from datetime import datetime
 from pytorch_lightning.strategies import DDPStrategy
 from data_utils import TextTransform
-
 from dataloaders import (
     LibrispeechDataset,
     EMGAndSpeechModule,
@@ -25,7 +29,6 @@ from dataloaders import (
     collate_gaddy_or_speech,
     BalancedBinPackingBatchSampler,
 )
-
 from functools import partial
 
 ##
@@ -45,10 +48,9 @@ ckpt_path = ""
 per_index_cache = True  # read each index from disk separately
 
 # from torchaudio.models.decoder import download_pretrained_files
-# download_pretrained_files("librispeech")
+# download_pretrained_files("librispeech-4-gram")
 
 isotime = datetime.now().isoformat()
-
 
 
 if DEBUG:
@@ -75,24 +77,22 @@ else:
     # grad_accum = 1
     # precision = "16-mixed"
     precision = "bf16-mixed"
-    limit_train_batches = 20
-    limit_val_batches = 20
+    limit_train_batches = 200
+    limit_val_batches = 5
     # log_neptune = True
     log_neptune = False
     n_epochs = 20
     num_sanity_val_steps = 0  # may prevent crashing of distributed training
     logger_level = logging.WARNING
 
+
 if per_index_cache:
     cache_suffix = "_per_index"
 else:
     cache_suffix = ""
 
-# on my local machine
-scratch_directory = "D:\\BlcRepo\\OtherCode\\Generative_Neuroscience\\silent_speech\\scratch"
-librispeech_directory = "D:/Blcdata/hf_cache"
-lm_directory = "D:\\BlcRepo\\OtherCode\\Generative_Neuroscience\\silent_speech"
-SLURM_REQUEUE = False
+
+
 
 data_dir = scratch_directory
 normalizers_file = os.path.join(SCRIPT_DIR, "normalizers.pkl")
@@ -247,9 +247,6 @@ if __name__ == "__main__":
         remove_attrs_before_save=["dataset"],
     )()
 
-    # speech_val = speech_val[:len(emg_datamodule.val)]
-    # speech_train = speech_train[:len(emg_datamodule.train)]
-    # speech_test = speech_test[:len(emg_datamodule.test)]
 
     datamodule = EMGAndSpeechModule(
         emg_datamodule.train,

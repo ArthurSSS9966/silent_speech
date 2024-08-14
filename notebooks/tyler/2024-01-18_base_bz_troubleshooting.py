@@ -7,8 +7,8 @@
 # 2023-08-24_brain_to_text_comp_split.py : most recent brain-to-text results, uses MONA name
 2
 ##
-%load_ext autoreload
-%autoreload 2
+# %load_ext autoreload
+# %autoreload 2
 ##
 import os, subprocess
 
@@ -300,7 +300,7 @@ else:
 
 ##
 
-# must run 2023-07-17_cache_dataset_with_attrs_.py first
+# must run cache_dataset_with_attrs_local_version.py first
 librispeech_train_cache = os.path.join(
     scratch_directory, "librispeech", "librispeech_960_train_phoneme_cache"
 )

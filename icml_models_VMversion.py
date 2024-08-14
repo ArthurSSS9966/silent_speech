@@ -75,23 +75,25 @@ else:
     # grad_accum = 1
     # precision = "16-mixed"
     precision = "bf16-mixed"
-    limit_train_batches = 20
-    limit_val_batches = 20
+    limit_train_batches = 200
+    limit_val_batches = 5
     # log_neptune = True
     log_neptune = False
     n_epochs = 20
     num_sanity_val_steps = 0  # may prevent crashing of distributed training
     logger_level = logging.WARNING
 
+
 if per_index_cache:
     cache_suffix = "_per_index"
 else:
     cache_suffix = ""
 
+
 # on my local machine
-scratch_directory = "D:\\BlcRepo\\OtherCode\\Generative_Neuroscience\\silent_speech\\scratch"
-librispeech_directory = "D:/Blcdata/hf_cache"
-lm_directory = "D:\\BlcRepo\\OtherCode\\Generative_Neuroscience\\silent_speech"
+scratch_directory = "/scratch"
+librispeech_directory = "/dataFolder"
+lm_directory = os.getcwd()
 SLURM_REQUEUE = False
 
 data_dir = scratch_directory
@@ -247,9 +249,6 @@ if __name__ == "__main__":
         remove_attrs_before_save=["dataset"],
     )()
 
-    # speech_val = speech_val[:len(emg_datamodule.val)]
-    # speech_train = speech_train[:len(emg_datamodule.train)]
-    # speech_test = speech_test[:len(emg_datamodule.test)]
 
     datamodule = EMGAndSpeechModule(
         emg_datamodule.train,
