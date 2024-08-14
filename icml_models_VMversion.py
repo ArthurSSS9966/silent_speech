@@ -144,7 +144,7 @@ if __name__ == "__main__":
 
 
     MANUAL_RESUME = False
-    output_directory = os.path.join(scratch_directory, f"output_arthur{RUN_ID}")
+    output_directory = os.path.join(data_dir, f"output_arthur{RUN_ID}")
 
     # needed for using CachedDataset
     emg_datamodule = EMGDataModule(
