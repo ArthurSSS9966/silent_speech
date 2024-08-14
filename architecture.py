@@ -17,7 +17,7 @@ from data_utils import TextTransform, token_error_rate
 # from magneto.models.s4d import S4D
 
 from pytorch_lightning.profilers import PassThroughProfiler
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from typing import Tuple, List, Union
 from dataloaders import split_batch_into_emg_neural_audio
 from contrastive import (
@@ -1167,7 +1167,7 @@ class MONAConfig(XtoTextConfig):
     use_dtw: bool = True
     use_crossCon: bool = True
     use_supTcon: bool = True
-    batch_class_proportions: np.ndarray = np.array([0.16, 0.42, 0.42])
+    batch_class_proportions: np.ndarray = field(default_factory=lambda: np.array([0.1, 0.2, 0.7]))
     latent_affine: bool = False  # so emg&audio latent are both unit norm
 
     def __post_init__(self):
