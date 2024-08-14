@@ -322,7 +322,7 @@ if __name__ == "__main__":
     trainer = pl.Trainer(
         max_epochs=config.num_train_epochs,
         devices=devices,
-        accelerator="gpu",
+        accelerator="auto",
         accumulate_grad_batches=config.gradient_accumulation_steps,
         gradient_clip_val=1,  # was 0.5 for best 26.x% run, gaddy used 10, llama 2 uses 1.0
         logger=neptune_logger,
