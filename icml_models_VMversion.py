@@ -132,7 +132,8 @@ if __name__ == "__main__":
     frac_vocal /= 2
     frac_librispeech = 0.5
     # TODO: should sweep librispeech ratios...
-    batch_class_proportions: np.ndarray = field(default_factory=lambda: np.array([frac_semg, frac_vocal, frac_librispeech]))
+    # batch_class_proportions: np.ndarray = field(default_factory=lambda: np.array([frac_semg, frac_vocal, frac_librispeech]))
+    batch_class_proportions = np.array([frac_semg, frac_vocal, frac_librispeech])
     latest_epoch = -1
     matmul_tf32 = True
 

@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="22d7f079-3e08-4883-9533-9f2e191f6652" name="Changes" comment="debug GPU issue">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/icml_models_VMversion.py" beforeDir="false" afterPath="$PROJECT_DIR$/icml_models_VMversion.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -248,7 +249,7 @@
       <workItem from="1722846927713" duration="11371000" />
       <workItem from="1722930375678" duration="33837000" />
       <workItem from="1723572762349" duration="406000" />
-      <workItem from="1723573182291" duration="19154000" />
+      <workItem from="1723573182291" duration="19800000" />
     </task>
     <task id="LOCAL-00001" summary="VM environment setup file&#10;Train process debug and update with new parameters">
       <option name="closed" value="true" />
@@ -290,7 +291,31 @@
       <option name="project" value="LOCAL" />
       <updated>1723674043960</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="debug GPU issue">
+      <option name="closed" value="true" />
+      <created>1723674720116</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1723674720116</updated>
+    </task>
+    <task id="LOCAL-00007" summary="debug GPU issue">
+      <option name="closed" value="true" />
+      <created>1723674783090</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1723674783090</updated>
+    </task>
+    <task id="LOCAL-00008" summary="debug GPU issue">
+      <option name="closed" value="true" />
+      <created>1723675060433</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1723675060433</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
