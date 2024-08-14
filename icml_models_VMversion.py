@@ -30,7 +30,7 @@ from functools import partial
 from dataclasses import field
 
 ##
-DEBUG = False
+DEBUG = True
 
 if DEBUG:
     RUN_ID = "debug"
@@ -57,16 +57,10 @@ isotime = datetime.now().isoformat()
 
 if DEBUG:
     NUM_GPUS = 1
-    limit_train_batches = 2
-    limit_val_batches = 2  # will not run on_validation_epoch_end
-    # NUM_GPUS = 2
-    # limit_train_batches = None
-    # limit_val_batches = None
+    limit_train_batches = 200
+    limit_val_batches = 20  # will not run on_validation_epoch_end
     log_neptune = False
-    n_epochs = 2
-    # n_epochs = 200
-    # precision = "32"
-    # precision = "16-mixed"
+    n_epochs = 20
     precision = "bf16-mixed"
     num_sanity_val_steps = 2
     grad_accum = 1
@@ -76,12 +70,9 @@ if DEBUG:
 else:
     NUM_GPUS = 1
     grad_accum = 2  # might need if run on 1 GPU
-    # grad_accum = 1
-    # precision = "16-mixed"
     precision = "bf16-mixed"
     limit_train_batches = None
     limit_val_batches = None
-    # log_neptune = True
     log_neptune = False
     n_epochs = 200
     num_sanity_val_steps = 0  # may prevent crashing of distributed training
@@ -238,7 +229,7 @@ if __name__ == "__main__":
         LibrispeechDataset,
         per_index_cache,
         remove_attrs_before_save=["dataset"],
-    )
+    )()
     speech_train = cache_dataset(
         librispeech_train_cache,
         LibrispeechDataset,
@@ -251,7 +242,6 @@ if __name__ == "__main__":
         per_index_cache,
         remove_attrs_before_save=["dataset"],
     )()
-
 
     datamodule = EMGAndSpeechModule(
         emg_datamodule.train,

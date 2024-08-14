@@ -91,9 +91,6 @@ if per_index_cache:
 else:
     cache_suffix = ""
 
-
-
-
 data_dir = scratch_directory
 normalizers_file = os.path.join(SCRIPT_DIR, "normalizers.pkl")
 
@@ -157,10 +154,7 @@ if __name__ == "__main__":
 
     mfcc_norm, emg_norm = pickle.load(open(normalizers_file, "rb"))
 
-    if NUM_GPUS > 1:
-        strategy = DDPStrategy(gradient_as_bucket_view=True, find_unused_parameters=True)
-    else:
-        strategy = "auto"
+    strategy = "auto"
 
     devices = NUM_GPUS
 
@@ -173,49 +167,21 @@ if __name__ == "__main__":
 
     logging.debug("DEBUG mode")
     ##
-    if NUM_GPUS > 1:
-        num_workers = 0  # nccl backend doesn't support num_workers>0
-        rank_key = "RANK" if "RANK" in os.environ else "LOCAL_RANK"
-        bz = base_bz * NUM_GPUS
-        if rank_key not in os.environ:
-            rank = 0
-        else:
-            rank = int(os.environ[rank_key])
-        logging.info(f"SETTING CUDA DEVICE ON RANK: {rank}")
+    TrainBatchSampler = partial(
+        BalancedBinPackingBatchSampler,
+        num_replicas=NUM_GPUS,
+        # in emg_speech_dset_lengths we divide length by 8
+        max_len=max_len // 8,
+        always_include_class=[0],
+    )
+    # num_workers=32
+    num_workers = 0  # prob better now that we're caching
+    bz = base_bz
+    ValSampler = None
+    TestSampler = None
+    rank = 0
 
-        torch.cuda.set_device(rank)
-        torch.cuda.empty_cache()
-        TrainBatchSampler = partial(
-            BalancedBinPackingBatchSampler,
-            num_replicas=NUM_GPUS,
-            # in emg_speech_dset_lengths we divide length by 8
-            max_len=max_len // 8,
-            always_include_class=[0],
-        )
-        ValSampler = lambda: DistributedSampler(
-            emg_datamodule.val, shuffle=False, num_replicas=NUM_GPUS
-        )
-        TestSampler = lambda: DistributedSampler(
-            emg_datamodule.test, shuffle=False, num_replicas=NUM_GPUS
-        )
-    else:
-        # TrainBatchSampler = SizeAwareStratifiedBatchSampler
-        TrainBatchSampler = partial(
-            BalancedBinPackingBatchSampler,
-            num_replicas=NUM_GPUS,
-            # in emg_speech_dset_lengths we divide length by 8
-            max_len=max_len // 8,
-            always_include_class=[0],
-        )
-        # num_workers=32
-        num_workers = 0  # prob better now that we're caching
-        bz = base_bz
-        ValSampler = None
-        TestSampler = None
-        rank = 0
-
-    if rank == 0:
-        os.makedirs(output_directory, exist_ok=True)
+    os.makedirs(output_directory, exist_ok=True)
 
     # must run cache_dataset_with_attrs_local_version.py first
     librispeech_train_cache = os.path.join(
