@@ -4,24 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="22d7f079-3e08-4883-9533-9f2e191f6652" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/cache_dataset_with_attrs_local_version.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/environmentVM.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/icml_models_VMversion.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/icml_models_local_version.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/setup.sh" afterDir="false" />
+    <list default="true" id="22d7f079-3e08-4883-9533-9f2e191f6652" name="Changes" comment="VM environment setup file&#10;Train process debug and update with new parameters">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2023-07-17_cache_dataset_with_attrs_.py" beforeDir="false" afterPath="$PROJECT_DIR$/cache_dataset_VMversion.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2024-01-15_icml_models.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/architecture.py" beforeDir="false" afterPath="$PROJECT_DIR$/architecture.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataloaders.py" beforeDir="false" afterPath="$PROJECT_DIR$/dataloaders.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notebooks/tyler/2023-07-25_dtw_speech_silent_emg.py" beforeDir="false" afterPath="$PROJECT_DIR$/notebooks/tyler/2023-07-25_dtw_speech_silent_emg.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notebooks/tyler/2024-01-15_icml_models.py" beforeDir="false" afterPath="$PROJECT_DIR$/notebooks/tyler/2024-01-15_icml_models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notebooks/tyler/2024-01-18_base_bz_troubleshooting.py" beforeDir="false" afterPath="$PROJECT_DIR$/notebooks/tyler/2024-01-18_base_bz_troubleshooting.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notebooks/tyler/2024-01-26_icml_pred.py" beforeDir="false" afterPath="$PROJECT_DIR$/notebooks/tyler/2024-01-26_icml_pred.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/read_emg.py" beforeDir="false" afterPath="$PROJECT_DIR$/read_emg.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/transformer.py" beforeDir="false" afterPath="$PROJECT_DIR$/transformer.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -319,8 +304,25 @@
       <workItem from="1722846927713" duration="11371000" />
       <workItem from="1722930375678" duration="33837000" />
       <workItem from="1723572762349" duration="406000" />
-      <workItem from="1723573182291" duration="10930000" />
+      <workItem from="1723573182291" duration="15390000" />
     </task>
+    <task id="LOCAL-00001" summary="VM environment setup file&#10;Train process debug and update with new parameters">
+      <option name="closed" value="true" />
+      <created>1723594093524</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1723594093524</updated>
+    </task>
+    <task id="LOCAL-00002" summary="VM environment setup file&#10;Train process debug and update with new parameters">
+      <option name="closed" value="true" />
+      <created>1723596093698</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1723596093698</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -336,6 +338,10 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="VM environment setup file&#10;Train process debug and update with new parameters" />
+    <option name="LAST_COMMIT_MESSAGE" value="VM environment setup file&#10;Train process debug and update with new parameters" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/silent_speech$2024_01_15_icml_models.coverage" NAME="2024-01-15_icml_models Coverage Results" MODIFIED="1723008489653" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/notebooks/tyler" />

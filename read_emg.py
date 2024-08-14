@@ -33,10 +33,10 @@ from torch.utils.data import DataLoader
 from dataloaders import cache_dataset
 
 # Set os.environ["DATA"] to this path this envir is not defined:
-if "DATA" not in os.environ:
+if "DATA_DIR" not in os.environ:
     os.environ["DATA_DIR"] = "dataFolder"
 
-DATA_FOLDER = os.environ["DATA"]
+DATA_FOLDER = os.environ["DATA_DIR"]
 project_folder = os.getcwd()
 
 REMOVE_CHANNELS = []

@@ -33,10 +33,11 @@ Then in the folder of 'librispeech-4-gram' you will find the files, copy and pas
 3. Transfer the .tar.gz file to the VM using command:
 `scp -i ~/.ssh/{key.perm} /path/to/file.tar.gz {user}@{localhost}:/path/to/destination`
 4. Extract the .tar.gz file using command:
-`unzip /path/to/file.zip -d /dataFoler`
+`tar -xzvf emg_data.tar.gz -C dataFolder`
 5. Download the librispeech alignment data from [Montreal Force Alignment](https://drive.google.com/file/d/1OgfXbTYhgp8NW5fRTt_TXwViraOyVEyY/view) manually
 6. Transfer the data using the same command
-7. Extract the data using the same command
+7. Extract the data using:
+`unzip XXX.zip -d dataFolder`
 
 
 
