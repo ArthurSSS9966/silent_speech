@@ -37,6 +37,9 @@ if DEBUG:
 else:
     RUN_ID = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
 
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+print(f"Device: {device}")
+
 torch.set_float32_matmul_precision("high")  # highest (32-bit) by default
 
 torch.backends.cudnn.allow_tf32 = True  # should be True by default
@@ -71,7 +74,7 @@ if DEBUG:
     os.environ["CUDA_LAUNCH_BLOCKING"] = "1"
 
 else:
-    NUM_GPUS = 1
+    NUM_GPUS = 1 if torch.cuda.is_available() else 0
     grad_accum = 2  # might need if run on 1 GPU
     # grad_accum = 1
     # precision = "16-mixed"
@@ -102,7 +105,6 @@ normalizers_file = os.path.join(SCRIPT_DIR, "normalizers.pkl")
 
 if __name__ == "__main__":
 
-    gpu_ram = torch.cuda.get_device_properties(0).total_memory / 1024**3
     base_bz = 24 * 4
     val_bz = 2  # terrible memory usage even at 8, I'm not sure why so bad...
     # gaddy used max_len = 128000, we double because of LibriSpeech
@@ -111,7 +113,7 @@ if __name__ == "__main__":
     # max_len = 48000 # from best perf with 4 x V100
     max_len = 128000  #
 
-    togglePhones = True
+    togglePhones = False
     learning_rate = 3e-4
     seqlen = 600
     white_noise_sd = 0
