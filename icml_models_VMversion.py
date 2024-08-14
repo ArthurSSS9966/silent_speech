@@ -74,7 +74,7 @@ if DEBUG:
     os.environ["CUDA_LAUNCH_BLOCKING"] = "1"
 
 else:
-    NUM_GPUS = 1 if torch.cuda.is_available() else 0
+    NUM_GPUS = 1
     grad_accum = 2  # might need if run on 1 GPU
     # grad_accum = 1
     # precision = "16-mixed"
