@@ -79,11 +79,11 @@ else:
     # grad_accum = 1
     # precision = "16-mixed"
     precision = "bf16-mixed"
-    limit_train_batches = 200
-    limit_val_batches = 5
+    limit_train_batches = None
+    limit_val_batches = None
     # log_neptune = True
     log_neptune = False
-    n_epochs = 20
+    n_epochs = 200
     num_sanity_val_steps = 0  # may prevent crashing of distributed training
     logger_level = logging.WARNING
 
@@ -95,12 +95,11 @@ else:
 
 
 # on my local machine
-scratch_directory = "dataFolder"
-librispeech_directory = "dataFolder"
+data_dir = "dataFolder"
+librispeech_directory = "dataFolder/LibriSpeech"
 lm_directory = os.getcwd()
 SLURM_REQUEUE = False
 
-data_dir = scratch_directory
 normalizers_file = os.path.join(SCRIPT_DIR, "normalizers.pkl")
 
 if __name__ == "__main__":
@@ -113,7 +112,7 @@ if __name__ == "__main__":
     # max_len = 48000 # from best perf with 4 x V100
     max_len = 128000  #
 
-    togglePhones = False
+    togglePhones = True
     learning_rate = 3e-4
     seqlen = 600
     white_noise_sd = 0
@@ -176,8 +175,8 @@ if __name__ == "__main__":
         force=True,
     )
 
-    logging.debug("DEBUG mode")
-    ##
+    # logging.debug("DEBUG mode")
+    # ##
     if NUM_GPUS > 1:
         num_workers = 0  # nccl backend doesn't support num_workers>0
         rank_key = "RANK" if "RANK" in os.environ else "LOCAL_RANK"
@@ -238,7 +237,7 @@ if __name__ == "__main__":
         LibrispeechDataset,
         per_index_cache,
         remove_attrs_before_save=["dataset"],
-    )()
+    )
     speech_train = cache_dataset(
         librispeech_train_cache,
         LibrispeechDataset,
