@@ -91,8 +91,8 @@ else:
 
 
 # on my local machine
-scratch_directory = "/scratch"
-librispeech_directory = "/dataFolder"
+scratch_directory = "dataFolder"
+librispeech_directory = "dataFolder"
 lm_directory = os.getcwd()
 SLURM_REQUEUE = False
 

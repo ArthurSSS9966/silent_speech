@@ -1,25 +1,25 @@
-jiwer
-torchaudio
-matplotlib
-scipy
-soundfile
+jiwer~=3.0.4
+torchaudio~=2.4.0
+matplotlib~=3.9.1
+scipy~=1.14.0
+soundfile~=0.12.1
 absl-py
-librosa
-numba
-unidecode
+librosa~=0.10.2.post1
+numba~=0.60.0
+unidecode~=1.3.8
 praat-textgrids
 g2p_en
-einops
+einops~=0.8.0
 opt_einsum
 hydra-core
 pytorch_lightning
 neptune-client
 ipykernel
-numpy
+numpy~=1.26.4
 matplotlib
 fire
-pandas
-scikit-learn
+pandas~=2.2.2
+scikit-learn~=1.5.1
 scipy
 torchtext
 # https://github.com/psychopy/psychopy/issues/3429#issuecomment-768981865
@@ -34,28 +34,42 @@ git+https://github.com/openai/whisper
 # TODO on install: pip install git+ ...
 # git+git://github.com/tbenst/psychopy#egg=PsychoPy
 pyqt5
-zarr
+zarr~=2.18.2
 
 # s4
 einops
 opt_einsum
 
 # gaddy
-brainflow
-sounddevice
+brainflow~=5.13.0
+sounddevice~=0.4.7
 soundfile
-nltk
+nltk~=3.8.1
 
-altair # hipster plotting
+altair~=5.3.0
 git+https://github.com/tbenst/glia.git # functional obfuscation ;)
 
-evaluate
+evaluate~=0.4.2
 transformers>=4.27.0
 # flash-attn
 flashlight-text
 vector-quantize-pytorch
-openai
-pqdm
-typer
-tenacity
-bark
+openai~=1.37.2
+pqdm~=0.2.0
+typer~=0.12.3
+tenacity~=9.0.0
+bark~=0.1.5
+kenlm~=0.2.0
+setuptools~=71.0.4
+torch~=2.4.0
+pykeops~=2.2.3
+tqdm~=4.66.4
+torchmetrics~=1.4.0.post0
+typing_extensions~=4.12.2
+tiktoken~=0.7.0
+joblib~=1.4.2
+datasets~=2.20.0
+ipython~=8.26.0
+torchvision~=0.19.0
+aiocache~=0.12.2
+dill~=0.3.8

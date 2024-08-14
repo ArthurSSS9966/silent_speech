@@ -7,8 +7,9 @@ from data_utils import TextTransform
 from dataloaders import LibrispeechDataset, cache_dataset
 from datasets import load_dataset
 
-librispeech_directory = "/dataFolder/LibriSpeech"
+librispeech_directory = "dataFolder/LibriSpeech"
 ##
+
 print("Loading datasets...")
 librispeech_datasets = load_dataset("librispeech_asr", cache_dir=librispeech_directory)
 
@@ -26,8 +27,6 @@ normalizers_file = os.path.join(SCRIPT_DIR, "normalizers.pkl")
 mfcc_norm, emg_norm = pickle.load(open(normalizers_file, "rb"))
 text_transform = TextTransform(togglePhones=False)
 
-##
-scratch_directory = "/scratch"
 
 librispeech_train_cache = os.path.join(
     librispeech_directory, "librispeech-cache", "train_phoneme_cache"

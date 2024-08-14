@@ -34,7 +34,7 @@ from dataloaders import cache_dataset
 
 # Set os.environ["DATA"] to this path this envir is not defined:
 if "DATA" not in os.environ:
-    os.environ["DATA_DIR"] = "/dataFolder"
+    os.environ["DATA_DIR"] = "dataFolder"
 
 DATA_FOLDER = os.environ["DATA"]
 project_folder = os.getcwd()
