@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="22d7f079-3e08-4883-9533-9f2e191f6652" name="Changes" comment="debug GPU issue">
+    <list default="true" id="22d7f079-3e08-4883-9533-9f2e191f6652" name="Changes" comment="Test Speed Issue">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/icml_models_VMversion.py" beforeDir="false" afterPath="$PROJECT_DIR$/icml_models_VMversion.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/icml_models_local_version.py" beforeDir="false" afterPath="$PROJECT_DIR$/icml_models_local_version.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/transformer.py" beforeDir="false" afterPath="$PROJECT_DIR$/transformer.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -254,7 +252,7 @@
       <workItem from="1722930375678" duration="33837000" />
       <workItem from="1723572762349" duration="406000" />
       <workItem from="1723573182291" duration="23038000" />
-      <workItem from="1723679883118" duration="2323000" />
+      <workItem from="1723679883118" duration="3279000" />
     </task>
     <task id="LOCAL-00001" summary="VM environment setup file&#10;Train process debug and update with new parameters">
       <option name="closed" value="true" />
@@ -344,7 +342,23 @@
       <option name="project" value="LOCAL" />
       <updated>1723678901049</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Test Speed Issue">
+      <option name="closed" value="true" />
+      <created>1723682617980</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1723682617980</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Test Speed Issue">
+      <option name="closed" value="true" />
+      <created>1723683076727</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1723683076727</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -364,7 +378,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="VM environment setup file&#10;Train process debug and update with new parameters" />
     <MESSAGE value="debug GPU issue" />
-    <option name="LAST_COMMIT_MESSAGE" value="debug GPU issue" />
+    <MESSAGE value="Test Speed Issue" />
+    <option name="LAST_COMMIT_MESSAGE" value="Test Speed Issue" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/silent_speech$2024_01_15_icml_models.coverage" NAME="2024-01-15_icml_models Coverage Results" MODIFIED="1723008489653" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/notebooks/tyler" />
