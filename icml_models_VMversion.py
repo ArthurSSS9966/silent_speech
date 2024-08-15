@@ -203,8 +203,8 @@ if __name__ == "__main__":
             max_len=max_len // 8,
             always_include_class=[0],
         )
-        # num_workers=32
-        num_workers = 0  # prob better now that we're caching
+        num_workers=31
+        # num_workers = 0  # prob better now that we're caching
         bz = base_bz
         ValSampler = None
         TestSampler = None
@@ -356,6 +356,9 @@ if __name__ == "__main__":
         strategy=strategy,
         num_sanity_val_steps=0
     )
+
+    num_threads = torch.get_num_threads()
+    print(f"Number of threads: {num_threads}")
 
     ##
     logging.info("about to fit")
