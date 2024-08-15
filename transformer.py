@@ -41,7 +41,7 @@ class TransformerEncoderLayer(nn.Module):
         # tyler added beta for resnet moment control
         # https://iclr-blog-track.github.io/2022/03/25/unnormalized-resnets/#moment-control
         self.beta = beta
-        self.activation = nn.ReLU()
+        self.activation = nn.ReLU() #TODO: Use GELU
         self.batch_first = False
 
     def forward(self, src: torch.Tensor, src_mask: Optional[torch.Tensor] = None, src_key_padding_mask: Optional[torch.Tensor] = None, is_causal=None) -> torch.Tensor:

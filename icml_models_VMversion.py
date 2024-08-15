@@ -89,13 +89,13 @@ else:
 data_dir = "dataFolder"
 librispeech_directory = "dataFolder/LibriSpeech"
 lm_directory = os.getcwd()
-SLURM_REQUEUE = False
 
 normalizers_file = os.path.join(SCRIPT_DIR, "normalizers.pkl")
 
 if __name__ == "__main__":
 
-    base_bz = 24 * 4
+    # base_bzs = [1, 16, 32, 64]
+    base_bz = 1 #TODO: Test this parameter of the speed [1,16,32,64]
     val_bz = 2  # terrible memory usage even at 8, I'm not sure why so bad...
     # gaddy used max_len = 128000, we double because of LibriSpeech
     # TODO: try 512000 and grad_accum=1 (prob OOM but might be faster!)
@@ -296,6 +296,37 @@ if __name__ == "__main__":
         weight_decay=weight_decay,
         latent_affine=latent_affine,
     )
+    configVM = MONAConfig(
+        steps_per_epoch=steps_per_epoch,
+        lm_directory=lm_directory,
+        num_outs=num_outs,
+        precision=precision,
+        gradient_accumulation_steps=grad_accum,
+        learning_rate=learning_rate,
+        audio_lambda=audio_lambda,
+        emg_lambda=emg_lambda,
+        # neural_input_features=datamodule.train.n_features,
+        neural_input_features=1,
+        seqlen=seqlen,
+        max_len=max_len,
+        batch_size=base_bz,
+        white_noise_sd=white_noise_sd,
+        constant_offset_sd=constant_offset_sd,
+        num_train_epochs=n_epochs,
+        togglePhones=togglePhones,
+        use_dtw=use_dtw,
+        use_crossCon=use_crossCon,
+        use_supTcon=use_supTcon,
+        batch_class_proportions=batch_class_proportions,
+        # d_inner=8,
+        # d_model=8,
+        fixed_length=True,
+        weight_decay=weight_decay,
+        latent_affine=latent_affine,
+        num_heads=3,
+        attn_layers=4,
+        d_inner=1000,
+    )
 
     model = MONA(config, text_transform, no_neural=True)
 
@@ -331,7 +362,7 @@ if __name__ == "__main__":
     print(f"Sanity check: {len(datamodule.train)} training samples")
     print(f"Sanity check: {len(datamodule.train_dataloader())} training batches")
     # epoch of 242 if only train...
-    if MANUAL_RESUME or SLURM_REQUEUE:
+    if MANUAL_RESUME:
         trainer.fit(model, datamodule=datamodule, ckpt_path=ckpt_path)
     else:
         trainer.fit(model, datamodule=datamodule)
