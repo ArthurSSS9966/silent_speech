@@ -10,6 +10,11 @@ pip install jiwer torchaudio matplotlib scipy soundfile absl-py librosa numba un
 # Install PyTorch
 pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
 
+# Create the dataFolder
+mkdir dataFolder
+
 # Git Clone the EMG alignments file
 git clone https://github.com/dgaddy/silent_speech_alignments.git
+
+
 
