@@ -14,8 +14,8 @@ download_pretrained_files("librispeech-4-gram")
 ```
 Then in the folder of 'librispeech-4-gram' you will find the files, copy and paste in the main folder
 0) build the environment based on the below steps
-1) run `cache_datasetVMversion/local_version.py`
-2) run `icml_models_VMversion/local_version.py`
+1) run `cache_dataset_VMversion.py`
+2) run `icml_models_VMversion.py`
 
 [//]: # (3&#41; run `notebooks/tyler/2024-01-26_icml_pred.py`)
 
