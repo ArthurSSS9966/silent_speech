@@ -38,7 +38,7 @@ Then in the folder of 'librispeech-4-gram' you will find the files, copy and pas
 6. Transfer the data using the same command
 7. Extract the data using:
 `unzip XXX.zip -d dataFolder`
-8. Run pip install 
+8. Try to install dependencies. The requirements.txt may cause version issues.
 
 
 
