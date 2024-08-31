@@ -42,7 +42,8 @@ mkdir dataFolder
 7. Transfer the data using the same command
 8. Extract the data using:
 `unzip XXX.zip -d dataFolder`
-9. Extract the text_alignments.tar.gz file inside the silent_speech_alignments folder to the dataFolder using:
+9. Find a way to rename the LibriSpeech folder inside the dataFolder to librispeech-alignments
+10. Extract the text_alignments.tar.gz file inside the silent_speech_alignments folder to the dataFolder using:
 ```
 cd silent_speech_alignments
 tar -xzvf text_alignments.tar.gz -C dataFolder
