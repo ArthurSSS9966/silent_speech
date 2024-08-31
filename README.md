@@ -27,7 +27,11 @@ Then in the folder of 'librispeech-4-gram' you will find the files, copy and pas
 
 ## Environment setup (In VM)
 
-0. Make the data directory to store the data: mkdir dataFolder
+0. Make the data directory to store the data inside of the silent_speech folder: 
+`
+cd silent_speech 
+mkdir dataFolder
+`
 1. Run the `bash setup.sh`, it will install the necessary environment and download the data
 2. Then you will need to download the [Gaddy 2020 dataset](https://doi.org/10.5281/zenodo.4064408) manually
 3. Transfer the .tar.gz file to the VM using command:
@@ -38,7 +42,12 @@ Then in the folder of 'librispeech-4-gram' you will find the files, copy and pas
 6. Transfer the data using the same command
 7. Extract the data using:
 `unzip XXX.zip -d dataFolder`
-8. Try to install dependencies. The requirements.txt may cause version issues.
+8. Extract the text_alignments.tar.gz file inside the silent_speech_alignments folder to the dataFolder using:
+`
+cd silent_speech_alignments
+tar -xzvf text_alignments.tar.gz -C dataFolder
+`
+10. Try to install dependencies. The requirements.txt may cause version issues.
 
 
 
