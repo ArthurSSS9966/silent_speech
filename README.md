@@ -6,9 +6,6 @@ Model (LLM) Integrated Scoring Adjustment
 
 [See the preprint on arxiv](https://arxiv.org/abs/2403.05583).
 
-## Training Procedure
-
-Build the environment based on the below steps
 [//]: # (3&#41; run `notebooks/tyler/2024-01-26_icml_pred.py`)
 
 [//]: # (4&#41; run `notebooks/tyler/batch_beam_search.sh` &#40;`2024-01-26_icml_beams.py`&#41;)
