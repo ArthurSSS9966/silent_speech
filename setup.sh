@@ -1,6 +1,3 @@
-#!/bin/bash
-source venv/bin/activate
-
 # Step 1: Install environment using conda
 conda env update --file environment.yml --prune
 
