@@ -36,7 +36,7 @@ mkdir dataFolder
 11. Extract the text_alignments.tar.gz file inside the silent_speech_alignments folder to the dataFolder using:
 ```
 cd silent_speech_alignments
-tar -xzvf text_alignments.tar.gz -C ~/silent_speech/dataFolder
+tar -xzvf text_alignments.tar.gz -C ~/silent_speech/
 ```
 11. Try to install dependencies. The requirements.txt may cause version issues.
 12. Download the lexicon.txt, tokens.txt, lm.binary using:
