@@ -75,7 +75,6 @@ dependencies:
       - git-filter-repo==2.45.0
       - gitdb==4.0.11
       - gitpython==3.1.43
-      - glia==0.5.2
       - h11==0.14.0
       - h5py==3.11.0
       - httpcore==1.0.5
