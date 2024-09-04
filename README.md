@@ -7,16 +7,8 @@ Model (LLM) Integrated Scoring Adjustment
 [See the preprint on arxiv](https://arxiv.org/abs/2403.05583).
 
 ## Training Procedure
-Download the lexicon.txt, tokens.txt, lm.binary using:
-```
-from torchaudio.models.decoder import download_pretrained_files
-download_pretrained_files("librispeech-4-gram")
-```
-Then in the folder of 'librispeech-4-gram' you will find the files, copy and paste in the main folder
-0) build the environment based on the below steps
-1) run `cache_dataset_VMversion.py`
-2) run `icml_models_VMversion.py`
 
+Build the environment based on the below steps
 [//]: # (3&#41; run `notebooks/tyler/2024-01-26_icml_pred.py`)
 
 [//]: # (4&#41; run `notebooks/tyler/batch_beam_search.sh` &#40;`2024-01-26_icml_beams.py`&#41;)
@@ -33,24 +25,32 @@ cd silent_speech
 mkdir dataFolder
 ```
 2. Run the `bash setup.sh`, it will install the necessary environment and download the data
-3. Then you will need to download the [Gaddy 2020 dataset](https://doi.org/10.5281/zenodo.4064408) manually
-4. Transfer the .tar.gz file to the VM using command:
+3. activate the environment: `conda activate silent_speech`
+4. Then you will need to download the [Gaddy 2020 dataset](https://doi.org/10.5281/zenodo.4064408) manually
+5. Transfer the .tar.gz file to the VM using command:
 `scp -i ~/.ssh/{key.perm} /path/to/file.tar.gz {user}@{localhost}:/path/to/destination`
-5. Extract the .tar.gz file using command:
+6. Extract the .tar.gz file using command:
 `tar -xzvf emg_data.tar.gz -C dataFolder`
-6. Download the librispeech alignment data from [Montreal Force Alignment](https://drive.google.com/file/d/1OgfXbTYhgp8NW5fRTt_TXwViraOyVEyY/view) manually
-7. Transfer the data using the same command
-8. Extract the data using:
+7. Download the librispeech alignment data from [Montreal Force Alignment](https://drive.google.com/file/d/1OgfXbTYhgp8NW5fRTt_TXwViraOyVEyY/view) manually
+8. Transfer the data using the same command
+9. Extract the data using:
 `unzip XXX.zip -d dataFolder`
-9. Find a way to rename the LibriSpeech folder inside the dataFolder to librispeech-alignments
-10. Extract the text_alignments.tar.gz file inside the silent_speech_alignments folder to the dataFolder using:
+10. Find a way to rename the LibriSpeech folder inside the dataFolder to librispeech-alignments
+11. Extract the text_alignments.tar.gz file inside the silent_speech_alignments folder to the dataFolder using:
 ```
 cd silent_speech_alignments
 tar -xzvf text_alignments.tar.gz -C dataFolder
 ```
-10. Try to install dependencies. The requirements.txt may cause version issues.
+11. Try to install dependencies. The requirements.txt may cause version issues.
+12. Download the lexicon.txt, tokens.txt, lm.binary using:
+```
+from torchaudio.models.decoder import download_pretrained_files
+download_pretrained_files("librispeech-4-gram")
+```
+Then in the folder of 'librispeech-4-gram' you will find the files, copy and paste in the main folder
 
-
+1) run `cache_dataset_VMversion.py`
+2) run `icml_models_VMversion.py`
 
 ## Explanation of model outputs for CTC loss
 For each timestep, the network predicts probability of each of 38 characters ('abcdefghijklmnopqrstuvwxyz0123456789|_'), where `|` is word boundary, and `_` is the "blank token". The blank token is used to separate repeat letters like "ll" in hello: `[h,h,e,l,l,_,l,o]`. It can optionally be inserted elsewhere too, like `__hhhh_eeee_llll_lllooo___`
