@@ -23,7 +23,6 @@ bounded-pool-executor==0.0.3
 brainflow==5.13.0
 bravado==11.0.3
 bravado-core==6.1.1
-Brotli @ file:///D:/bld/brotli-split_1695989908365/work
 certifi @ file:///home/conda/feedstock_root/build_artifacts/certifi_1720457958366/work/certifi
 cffi==1.16.0
 charset-normalizer @ file:///home/conda/feedstock_root/build_artifacts/charset-normalizer_1698833585322/work
@@ -88,7 +87,6 @@ jsonschema==4.23.0
 jsonschema-specifications==2023.12.1
 jupyter_client==8.6.2
 jupyter_core==5.7.2
-kenlm @ file:///D:/BlcRepo/OtherCode/Generative_Neuroscience/silent_speech/kenlm
 keopscore==2.2.3
 kiwisolver==1.4.5
 lazy_loader==0.4
@@ -96,12 +94,9 @@ librosa==0.10.2.post1
 lightning-utilities==0.11.6
 llvmlite==0.43.0
 markdown-it-py==3.0.0
-MarkupSafe @ file:///D:/bld/markupsafe_1706900062361/work
 matplotlib==3.9.1
 matplotlib-inline==0.1.7
 mdurl==0.1.2
-mkl-fft @ file:///C:/b/abs_19i1y8ykas/croot/mkl_fft_1695058226480/work
-mkl-random @ file:///C:/b/abs_edwkj1_o69/croot/mkl_random_1695059866750/work
 mkl-service==2.4.0
 monotonic==1.6
 more-itertools==10.3.0
@@ -118,7 +113,6 @@ nltk==3.8.1
 numba==0.60.0
 numcodecs==0.13.0
 numexpr==2.10.1
-numpy @ file:///C:/b/abs_c1ywpu18ar/croot/numpy_and_numpy_base_1708638681471/work/dist/numpy-1.26.4-cp310-cp310-win_amd64.whl#sha256=ebb5aa2b36d8afa5ec3231c19e5a1fc75b6d85e7db483f0fb9e77dad58469977
 oauthlib==3.2.2
 omegaconf==2.3.0
 openai==1.37.2
@@ -226,7 +220,6 @@ wcwidth==0.2.13
 webcolors==24.6.0
 websocket-client==1.8.0
 websockets==12.0
-win-inet-pton @ file:///D:/bld/win_inet_pton_1667051142467/work
 xxhash==3.4.1
 yarl==1.9.4
 zarr==2.18.2
