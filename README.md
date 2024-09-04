@@ -49,6 +49,8 @@ download_pretrained_files("librispeech-4-gram")
 ```
 Then in the folder of 'librispeech-4-gram' you will find the files, copy and paste in the main folder
 
+
+## Train the Model
 1) run `cache_dataset_VMversion.py`
 2) run `icml_models_VMversion.py`
 
