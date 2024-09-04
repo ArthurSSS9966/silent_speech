@@ -7,7 +7,7 @@ from data_utils import TextTransform
 from dataloaders import LibrispeechDataset, cache_dataset
 from datasets import load_dataset
 
-librispeech_directory = "dataFolder/LibriSpeech"
+librispeech_directory = "dataFolder"
 ##
 
 print("Loading datasets...")

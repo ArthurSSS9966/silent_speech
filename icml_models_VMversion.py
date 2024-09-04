@@ -87,7 +87,7 @@ else:
 
 # on my local machine
 data_dir = "dataFolder"
-librispeech_directory = "dataFolder/LibriSpeech"
+librispeech_directory = "dataFolder"
 lm_directory = os.getcwd()
 
 normalizers_file = os.path.join(SCRIPT_DIR, "normalizers.pkl")
@@ -328,7 +328,7 @@ if __name__ == "__main__":
         d_inner=1000,
     )
 
-    model = MONA(config, text_transform, no_neural=True)
+    model = MONA(configVM, text_transform, no_neural=True)
 
     ##
     logging.info("made model")
