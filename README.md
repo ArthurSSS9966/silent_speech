@@ -14,8 +14,8 @@ download_pretrained_files("librispeech-4-gram")
 ```
 Then in the folder of 'librispeech-4-gram' you will find the files, copy and paste in the main folder
 0) build the environment based on the below steps
-1) run `cache_datasetVMversion/local_version.py`
-2) run `icml_models_VMversion/local_version.py`
+1) run `cache_dataset_VMversion.py`
+2) run `icml_models_VMversion.py`
 
 [//]: # (3&#41; run `notebooks/tyler/2024-01-26_icml_pred.py`)
 
@@ -27,17 +27,28 @@ Then in the folder of 'librispeech-4-gram' you will find the files, copy and pas
 
 ## Environment setup (In VM)
 
-0. Make the data directory to store the data: mkdir dataFolder
-1. Run the `bash setup.sh`, it will install the necessary environment and download the data
-2. Then you will need to download the [Gaddy 2020 dataset](https://doi.org/10.5281/zenodo.4064408) manually
-3. Transfer the .tar.gz file to the VM using command:
+0. Make the data directory to store the data inside of the silent_speech folder:
+```
+cd silent_speech 
+mkdir dataFolder
+```
+2. Run the `bash setup.sh`, it will install the necessary environment and download the data
+3. Then you will need to download the [Gaddy 2020 dataset](https://doi.org/10.5281/zenodo.4064408) manually
+4. Transfer the .tar.gz file to the VM using command:
 `scp -i ~/.ssh/{key.perm} /path/to/file.tar.gz {user}@{localhost}:/path/to/destination`
-4. Extract the .tar.gz file using command:
+5. Extract the .tar.gz file using command:
 `tar -xzvf emg_data.tar.gz -C dataFolder`
-5. Download the librispeech alignment data from [Montreal Force Alignment](https://drive.google.com/file/d/1OgfXbTYhgp8NW5fRTt_TXwViraOyVEyY/view) manually
-6. Transfer the data using the same command
-7. Extract the data using:
+6. Download the librispeech alignment data from [Montreal Force Alignment](https://drive.google.com/file/d/1OgfXbTYhgp8NW5fRTt_TXwViraOyVEyY/view) manually
+7. Transfer the data using the same command
+8. Extract the data using:
 `unzip XXX.zip -d dataFolder`
+9. Find a way to rename the LibriSpeech folder inside the dataFolder to librispeech-alignments
+10. Extract the text_alignments.tar.gz file inside the silent_speech_alignments folder to the dataFolder using:
+```
+cd silent_speech_alignments
+tar -xzvf text_alignments.tar.gz -C dataFolder
+```
+10. Try to install dependencies. The requirements.txt may cause version issues.
 
 
 

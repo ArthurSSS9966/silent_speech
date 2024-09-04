@@ -13,5 +13,5 @@ pip3 install torch torchvision torchaudio --index-url https://download.pytorch.o
 # Git Clone the EMG alignments file
 git clone https://github.com/dgaddy/silent_speech_alignments.git
 
-mv silent_speech_alignments dataFolder/
+
 
