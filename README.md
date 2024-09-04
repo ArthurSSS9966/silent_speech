@@ -36,7 +36,7 @@ mkdir dataFolder
 10. Extract the text_alignments.tar.gz file inside the silent_speech_alignments folder to the dataFolder using:
 ```
 cd silent_speech_alignments
-tar -xzvf text_alignments.tar.gz -C ~/silent_speech/
+tar -xzvf text_alignments.tar.gz -C ~/silent_speech/dataFolder
 ```
 11. Try to install dependencies. The requirements.txt may cause version issues.
 12. Download the lexicon.txt, tokens.txt, lm.binary using:
@@ -45,7 +45,7 @@ from torchaudio.models.decoder import download_pretrained_files
 download_pretrained_files("librispeech-4-gram")
 ```
 Then in the folder of 'librispeech-4-gram' you will find the files, copy and paste in the main folder
-'mv /* ~/silent_speech/'
+`mv /* ~/silent_speech/`
 
 ## Train the Model
 1) run `cache_dataset_VMversion.py`
