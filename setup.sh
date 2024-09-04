@@ -4,6 +4,7 @@ source venv/bin/activate
 # Step 1: Install environment using conda
 conda env update --file VMenvironment.yml --prune
 #
+conda install libsndfile -c conda-forge
 ## Step 2: Install required Python packages using pip
 #pip install jiwer torchaudio matplotlib scipy soundfile absl-py librosa numba unidecode praat-textgrids g2p_en einops opt_einsum hydra-core pytorch_lightning "neptune-client==0.16.18"
 #
