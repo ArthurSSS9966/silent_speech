@@ -28,7 +28,6 @@ python_speech_features
 pytorch_lightning>=2.0.2
 pytorch_warmup
 speechbrain
-git+https://github.com/openai/whisper
 # remove pocketsphinx for M1 compatability
 # temp hack: setup.py does not work with git link yet..
 # TODO on install: pip install git+ ...
