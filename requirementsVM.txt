@@ -142,7 +142,6 @@ python_speech_features==0.6
 pytorch-lightning==2.3.3
 pytorch-warmup==0.1.1
 pytz==2024.1
-pywin32==306
 pyzmq==26.0.3
 quantities==0.15.0
 rapidfuzz==3.9.5

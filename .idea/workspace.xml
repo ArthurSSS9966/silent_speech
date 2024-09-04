@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="22d7f079-3e08-4883-9533-9f2e191f6652" name="Changes" comment="Test Speed Issue">
-      <change beforePath="$PROJECT_DIR$/VMenvironment.yml" beforeDir="false" afterPath="$PROJECT_DIR$/VMenvironment.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirementsVM.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirementsVM.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -254,7 +254,7 @@
       <workItem from="1724233974343" duration="34000" />
       <workItem from="1724781773618" duration="12000" />
       <workItem from="1725389338934" duration="7599000" />
-      <workItem from="1725476961839" duration="2208000" />
+      <workItem from="1725476961839" duration="2746000" />
     </task>
     <task id="LOCAL-00001" summary="VM environment setup file&#10;Train process debug and update with new parameters">
       <option name="closed" value="true" />
@@ -424,7 +424,39 @@
       <option name="project" value="LOCAL" />
       <updated>1725479958886</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Test Speed Issue">
+      <option name="closed" value="true" />
+      <created>1725481156409</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1725481156409</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Test Speed Issue">
+      <option name="closed" value="true" />
+      <created>1725481291691</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1725481291691</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Test Speed Issue">
+      <option name="closed" value="true" />
+      <created>1725481449235</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1725481449235</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Test Speed Issue">
+      <option name="closed" value="true" />
+      <created>1725481631519</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1725481631519</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
