@@ -6,8 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="22d7f079-3e08-4883-9533-9f2e191f6652" name="Changes" comment="Test Speed Issue">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/icml_models_VMversion.py" beforeDir="false" afterPath="$PROJECT_DIR$/icml_models_VMversion.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/setup.sh" beforeDir="false" afterPath="$PROJECT_DIR$/setup.sh" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -258,7 +256,7 @@
       <workItem from="1724177862210" duration="637000" />
       <workItem from="1724233974343" duration="34000" />
       <workItem from="1724781773618" duration="12000" />
-      <workItem from="1725389338934" duration="3667000" />
+      <workItem from="1725389338934" duration="7599000" />
     </task>
     <task id="LOCAL-00001" summary="VM environment setup file&#10;Train process debug and update with new parameters">
       <option name="closed" value="true" />
@@ -372,7 +370,23 @@
       <option name="project" value="LOCAL" />
       <updated>1723683510162</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Test Speed Issue">
+      <option name="closed" value="true" />
+      <created>1725408782688</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1725408782688</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Test Speed Issue">
+      <option name="closed" value="true" />
+      <created>1725410635710</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1725410635710</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
