@@ -21,19 +21,19 @@ Model (LLM) Integrated Scoring Adjustment
 cd silent_speech 
 mkdir dataFolder
 ```
-2. Run the `bash setup.sh`, it will install the necessary environment and download the data
-3. activate the environment: `conda activate silent_speech`
-4. Then you will need to download the [Gaddy 2020 dataset](https://doi.org/10.5281/zenodo.4064408) manually
-5. Transfer the .tar.gz file to the VM using command:
+1. Run the `bash setup.sh`, it will install the necessary environment and download the data
+2. activate the environment: `conda activate silent_speech`
+3. Then you will need to download the [Gaddy 2020 dataset](https://doi.org/10.5281/zenodo.4064408) manually
+4. Transfer the .tar.gz file to the VM using command:
 `scp -i ~/.ssh/{key.perm} /path/to/file.tar.gz {user}@{localhost}:/path/to/destination`
-6. Extract the .tar.gz file using command:
+5. Extract the .tar.gz file using command:
 `tar -xzvf emg_data.tar.gz -C ~/silent_speech/dataFolder`
-7. Download the librispeech alignment data from [Montreal Force Alignment](https://drive.google.com/file/d/1OgfXbTYhgp8NW5fRTt_TXwViraOyVEyY/view) manually
-8. Transfer the data using the same command
-9. Extract the data using:
+6. Download the librispeech alignment data from [Montreal Force Alignment](https://drive.google.com/file/d/1OgfXbTYhgp8NW5fRTt_TXwViraOyVEyY/view) manually
+7. Transfer the data using the same command
+8. Extract the data using:
 `unzip XXX.zip -d ~/silent_speech/dataFolder`
-10. Find a way to rename the LibriSpeech folder inside the dataFolder to librispeech-alignments
-11. Extract the text_alignments.tar.gz file inside the silent_speech_alignments folder to the dataFolder using:
+9. Find a way to rename the LibriSpeech folder inside the dataFolder to librispeech-alignments
+10. Extract the text_alignments.tar.gz file inside the silent_speech_alignments folder to the dataFolder using:
 ```
 cd silent_speech_alignments
 tar -xzvf text_alignments.tar.gz -C ~/silent_speech/
