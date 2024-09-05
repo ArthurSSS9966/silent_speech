@@ -70,8 +70,8 @@ else:
     NUM_GPUS = 1
     grad_accum = 2  # might need if run on 1 GPU
     precision = "bf16-mixed"
-    limit_train_batches = None
-    limit_val_batches = None
+    limit_train_batches = 100
+    limit_val_batches = 100
     log_neptune = False
     n_epochs = 200
     num_sanity_val_steps = 0  # may prevent crashing of distributed training
