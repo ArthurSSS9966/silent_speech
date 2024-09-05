@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="22d7f079-3e08-4883-9533-9f2e191f6652" name="Changes" comment="Add empty_cache() for OOM issue.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/architecture.py" beforeDir="false" afterPath="$PROJECT_DIR$/architecture.py" afterDir="false" />
+    <list default="true" id="22d7f079-3e08-4883-9533-9f2e191f6652" name="Changes" comment="Test Speed Issue">
+      <change beforePath="$PROJECT_DIR$/requirementsVM.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirementsVM.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -127,9 +126,6 @@
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="true" />
@@ -258,8 +254,7 @@
       <workItem from="1724233974343" duration="34000" />
       <workItem from="1724781773618" duration="12000" />
       <workItem from="1725389338934" duration="7599000" />
-      <workItem from="1725476961839" duration="7038000" />
-      <workItem from="1725496413149" duration="4112000" />
+      <workItem from="1725476961839" duration="2746000" />
     </task>
     <task id="LOCAL-00001" summary="VM environment setup file&#10;Train process debug and update with new parameters">
       <option name="closed" value="true" />
@@ -461,63 +456,7 @@
       <option name="project" value="LOCAL" />
       <updated>1725481631519</updated>
     </task>
-    <task id="LOCAL-00026" summary="Test Speed Issue">
-      <option name="closed" value="true" />
-      <created>1725481696581</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1725481696581</updated>
-    </task>
-    <task id="LOCAL-00027" summary="Test Speed Issue">
-      <option name="closed" value="true" />
-      <created>1725481748058</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1725481748058</updated>
-    </task>
-    <task id="LOCAL-00028" summary="Add empty_cache() for OOM issue.">
-      <option name="closed" value="true" />
-      <created>1725498253602</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1725498253602</updated>
-    </task>
-    <task id="LOCAL-00029" summary="Add empty_cache() for OOM issue.">
-      <option name="closed" value="true" />
-      <created>1725498805164</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1725498805164</updated>
-    </task>
-    <task id="LOCAL-00030" summary="Add empty_cache() for OOM issue.">
-      <option name="closed" value="true" />
-      <created>1725499059476</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1725499059476</updated>
-    </task>
-    <task id="LOCAL-00031" summary="Add empty_cache() for OOM issue.">
-      <option name="closed" value="true" />
-      <created>1725499277637</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1725499277638</updated>
-    </task>
-    <task id="LOCAL-00032" summary="Add empty_cache() for OOM issue.">
-      <option name="closed" value="true" />
-      <created>1725499950732</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1725499950732</updated>
-    </task>
-    <option name="localTasksCounter" value="33" />
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -538,8 +477,7 @@
     <MESSAGE value="VM environment setup file&#10;Train process debug and update with new parameters" />
     <MESSAGE value="debug GPU issue" />
     <MESSAGE value="Test Speed Issue" />
-    <MESSAGE value="Add empty_cache() for OOM issue." />
-    <option name="LAST_COMMIT_MESSAGE" value="Add empty_cache() for OOM issue." />
+    <option name="LAST_COMMIT_MESSAGE" value="Test Speed Issue" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/silent_speech$2024_01_15_icml_models.coverage" NAME="2024-01-15_icml_models Coverage Results" MODIFIED="1723008489653" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/notebooks/tyler" />

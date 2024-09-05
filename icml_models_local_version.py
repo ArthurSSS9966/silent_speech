@@ -55,7 +55,7 @@ isotime = datetime.now().isoformat()
 
 if DEBUG:
     NUM_GPUS = 1
-    limit_train_batches = 20
+    limit_train_batches = 200
     limit_val_batches = 20  # will not run on_validation_epoch_end
     log_neptune = False
     n_epochs = 20

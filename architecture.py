@@ -1,6 +1,5 @@
 import random
 import torch, numpy as np
-from pytorch_lightning.utilities.types import STEP_OUTPUT
 from torch import nn
 import torch.nn.functional as F
 from transformer import TransformerEncoderLayer
@@ -19,7 +18,7 @@ from data_utils import TextTransform, token_error_rate
 
 from pytorch_lightning.profilers import PassThroughProfiler
 from dataclasses import dataclass, field
-from typing import Tuple, List, Union, Any
+from typing import Tuple, List, Union
 from dataloaders import split_batch_into_emg_neural_audio
 from contrastive import (
     nobatch_cross_contrastive_loss,
@@ -318,39 +317,11 @@ class XtoText(pl.LightningModule):
             batch_size=neural_bz,
             sync_dist=True,
         )
-        loss = loss.detach()
-
         torch.cuda.empty_cache()
 
         print(f"Train loss: {loss}")
 
         return loss
-
-    # def on_train_batch_end(self, outputs: STEP_OUTPUT, batch: Any, batch_idx: int) -> None:
-    #     """
-    #     Called when the train batch ends.
-    #     """
-    #
-    #     # Clear GPU memory cache
-    #     torch.cuda.empty_cache()
-    #
-    #     # Force garbage collection
-    #     gc.collect()
-    #
-    #
-    #     del outputs, batch
-
-    # def on_train_epoch_end(self):
-    #     """
-    #     Called after each epoch.
-    #     A good place to force garbage collection and ensure memory is freed.
-    #     """
-    #     # Clear GPU memory cache
-    #     torch.cuda.empty_cache()
-    #
-    #     # Force garbage collection
-    #     gc.collect()
-
 
     def on_validation_epoch_start(self):
         # self.profiler.start(f"validation loop")
