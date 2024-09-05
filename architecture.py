@@ -523,6 +523,32 @@ class XtoText(pl.LightningModule):
         gc.collect()
         torch.cuda.empty_cache()  # TODO: see if fixes occasional freeze...?
 
+    def on_train_batch_end(self, outputs: STEP_OUTPUT, batch: Any, batch_idx: int) -> None:
+        """
+        Called when the train batch ends.
+        """
+
+        # Clear GPU memory cache
+        torch.cuda.empty_cache()
+
+        # Force garbage collection
+        gc.collect()
+
+
+        del outputs, batch
+
+    def on_train_epoch_end(self):
+        """
+        Called after each epoch.
+        A good place to force garbage collection and ensure memory is freed.
+        """
+        # Clear GPU memory cache
+        torch.cuda.empty_cache()
+
+        # Force garbage collection
+        gc.collect()
+
+
     def _beam_search_pred(self, pred):
         "Repeatedly called by validation_step & test_step."
         beam_results = self.ctc_decoder(pred)
