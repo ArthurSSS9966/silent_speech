@@ -2,6 +2,7 @@ import random
 import torch, numpy as np
 from torch import nn
 import torch.nn.functional as F
+from pytorch_lightning.utilities.types import STEP_OUTPUT
 from transformer import TransformerEncoderLayer
 # from torch.nn import TransformerEncoderLayer
 from data_utils import combine_fixed_length, decollate_tensor
@@ -18,7 +19,7 @@ from data_utils import TextTransform, token_error_rate
 
 from pytorch_lightning.profilers import PassThroughProfiler
 from dataclasses import dataclass, field
-from typing import Tuple, List, Union
+from typing import Tuple, List, Union, Any
 from dataloaders import split_batch_into_emg_neural_audio
 from contrastive import (
     nobatch_cross_contrastive_loss,
