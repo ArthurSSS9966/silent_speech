@@ -378,6 +378,6 @@ if __name__ == "__main__":
     # End to track memory:
     print("Peak memory usage: {}".format(torch.cuda.max_memory_allocated()))
 
-    torch.cuda.memory._dump_snapshot(f"f{RUN_ID}_snapshot.pt")
+    torch.cuda.memory._dump_snapshot(f"f{RUN_ID}_snapshot.pickle")
 
 
