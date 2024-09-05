@@ -318,24 +318,25 @@ class XtoText(pl.LightningModule):
             batch_size=neural_bz,
             sync_dist=True,
         )
-        torch.cuda.empty_cache()
-        loss.detach()
+        loss = loss.detach()
 
+        torch.cuda.empty_cache()
 
         print(f"Train loss: {loss}")
 
         return loss
 
-
     def on_train_batch_end(self, outputs: STEP_OUTPUT, batch: Any, batch_idx: int) -> None:
         """
         Called when the train batch ends.
         """
+
         # Clear GPU memory cache
         torch.cuda.empty_cache()
 
         # Force garbage collection
         gc.collect()
+
 
         del outputs, batch
 
@@ -775,6 +776,11 @@ class Model(GaddyBase):
             print("Isnan output:", torch.any(torch.isnan(pred)))
             print("Isinf output:", torch.any(torch.isinf(pred)))
             # raise ValueError("NaN/Inf detected in loss")
+
+        # detach to avoid memory leak
+        loss = loss.detach()
+        pred = pred.detach()
+        y = y.detach()
 
         return loss, bz
 
