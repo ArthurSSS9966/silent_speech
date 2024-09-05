@@ -98,7 +98,7 @@ if __name__ == "__main__":
     # TODO: try 512000 and grad_accum=1 (prob OOM but might be faster!)
     # also almost def won't work for supTcon + dtw
     # max_len = 48000 # from best perf with 4 x V100
-    max_len = 128000  #
+    max_len = 48000  #
 
     togglePhones = True
     learning_rate = 3e-4

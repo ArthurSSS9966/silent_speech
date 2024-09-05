@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="22d7f079-3e08-4883-9533-9f2e191f6652" name="Changes" comment="Add empty_cache() to address OOM issue">
+    <list default="true" id="22d7f079-3e08-4883-9533-9f2e191f6652" name="Changes" comment="Add memory track to track memory issue">
       <change beforePath="$PROJECT_DIR$/icml_models_VMversion.py" beforeDir="false" afterPath="$PROJECT_DIR$/icml_models_VMversion.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -499,7 +499,23 @@
       <option name="project" value="LOCAL" />
       <updated>1725509033267</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="Add memory track to track memory issue">
+      <option name="closed" value="true" />
+      <created>1725509658009</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1725509658009</updated>
+    </task>
+    <task id="LOCAL-00032" summary="Add memory track to track memory issue">
+      <option name="closed" value="true" />
+      <created>1725509928237</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1725509928237</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -522,7 +538,8 @@
     <MESSAGE value="Add empty_cache() for OOM issue." />
     <MESSAGE value="Test Speed Issue" />
     <MESSAGE value="Add empty_cache() to address OOM issue" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add empty_cache() to address OOM issue" />
+    <MESSAGE value="Add memory track to track memory issue" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add memory track to track memory issue" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/silent_speech$2024_01_15_icml_models.coverage" NAME="2024-01-15_icml_models Coverage Results" MODIFIED="1723008489653" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/notebooks/tyler" />
