@@ -24,8 +24,8 @@ mkdir dataFolder
 1. Run the `bash setup.sh`, it will install the necessary environment and download the data
 2. activate the environment: `conda activate silent_speech`
 3. Then you will need to download the [Gaddy 2020 dataset](https://doi.org/10.5281/zenodo.4064408) manually
-4. Transfer the .tar.gz file to the VM using command:
-`scp -i ~/.ssh/{key.perm} /path/to/file.tar.gz {user}@{localhost}:/path/to/destination`
+4. Open Command Prompt on your local machine and transfer the .tar.gz file to the VM using command:
+`scp -i ~/.ssh/{key.perm} /path/to/file.tar.gz {user}@{VM_ip_address}:/path/to/destination`
 5. Extract the .tar.gz file using command:
 `tar -xzvf emg_data.tar.gz -C ~/silent_speech/dataFolder`
 6. Download the librispeech alignment data from [Montreal Force Alignment](https://drive.google.com/file/d/1OgfXbTYhgp8NW5fRTt_TXwViraOyVEyY/view) manually
