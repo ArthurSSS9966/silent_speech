@@ -92,7 +92,7 @@ normalizers_file = os.path.join(SCRIPT_DIR, "normalizers.pkl")
 if __name__ == "__main__":
 
     # base_bzs = [1, 16, 32, 64]
-    base_bz = 1 #TODO: Test this parameter of the speed [1,16,32,64]
+    base_bz = 32 #TODO: Test this parameter of the speed [1,16,32,64]
     val_bz = 2  # terrible memory usage even at 8, I'm not sure why so bad...
     # gaddy used max_len = 128000, we double because of LibriSpeech
     # TODO: try 512000 and grad_accum=1 (prob OOM but might be faster!)
