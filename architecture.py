@@ -340,16 +340,16 @@ class XtoText(pl.LightningModule):
     #
     #     del outputs, batch
 
-    def on_train_epoch_end(self):
-        """
-        Called after each epoch.
-        A good place to force garbage collection and ensure memory is freed.
-        """
-        # Clear GPU memory cache
-        torch.cuda.empty_cache()
-
-        # Force garbage collection
-        gc.collect()
+    # def on_train_epoch_end(self):
+    #     """
+    #     Called after each epoch.
+    #     A good place to force garbage collection and ensure memory is freed.
+    #     """
+    #     # Clear GPU memory cache
+    #     torch.cuda.empty_cache()
+    #
+    #     # Force garbage collection
+    #     gc.collect()
 
 
     def on_validation_epoch_start(self):
