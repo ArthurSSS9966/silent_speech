@@ -779,8 +779,6 @@ class Model(GaddyBase):
 
         # detach to avoid memory leak
         loss = loss.detach()
-        pred = pred.detach()
-        y = y.detach()
 
         return loss, bz
 
