@@ -29,7 +29,7 @@ from dataloaders import (
 from functools import partial
 
 ##
-DEBUG = True
+DEBUG = False
 
 if DEBUG:
     RUN_ID = "debug"
@@ -340,15 +340,15 @@ if __name__ == "__main__":
     neptune_logger = None
 
     trainer = pl.Trainer(
-        max_epochs=config.num_train_epochs,
+        max_epochs=configVM.num_train_epochs,
         devices='auto',
         accelerator="auto",
-        accumulate_grad_batches=config.gradient_accumulation_steps,
+        accumulate_grad_batches=configVM.gradient_accumulation_steps,
         gradient_clip_val=1,  # was 0.5 for best 26.x% run, gaddy used 10, llama 2 uses 1.0
         logger=neptune_logger,
         default_root_dir=output_directory,
         callbacks=callbacks,
-        precision=config.precision,
+        precision=configVM.precision,
         limit_train_batches=limit_train_batches,
         limit_val_batches=limit_val_batches,
         sync_batchnorm=True,
