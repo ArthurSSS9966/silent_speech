@@ -27,7 +27,6 @@ from dataloaders import (
 )
 
 from functools import partial
-from dataclasses import field
 
 ##
 DEBUG = True
@@ -57,7 +56,7 @@ isotime = datetime.now().isoformat()
 
 if DEBUG:
     NUM_GPUS = 1
-    limit_train_batches = 200
+    limit_train_batches = 100
     limit_val_batches = 20  # will not run on_validation_epoch_end
     log_neptune = False
     n_epochs = 20
@@ -268,6 +267,7 @@ if __name__ == "__main__":
     text_transform = TextTransform(togglePhones=togglePhones)
     n_chars = len(text_transform.chars)
     num_outs = n_chars + 1  # +1 for CTC blank token ( i think? )
+
     config = MONAConfig(
         steps_per_epoch=steps_per_epoch,
         lm_directory=lm_directory,
@@ -341,15 +341,15 @@ if __name__ == "__main__":
     neptune_logger = None
 
     trainer = pl.Trainer(
-        max_epochs=config.num_train_epochs,
+        max_epochs=configVM.num_train_epochs,
         devices='auto',
         accelerator="auto",
-        accumulate_grad_batches=config.gradient_accumulation_steps,
+        accumulate_grad_batches=configVM.gradient_accumulation_steps,
         gradient_clip_val=1,  # was 0.5 for best 26.x% run, gaddy used 10, llama 2 uses 1.0
         logger=neptune_logger,
         default_root_dir=output_directory,
         callbacks=callbacks,
-        precision=config.precision,
+        precision=configVM.precision,
         limit_train_batches=limit_train_batches,
         limit_val_batches=limit_val_batches,
         sync_batchnorm=True,
@@ -365,6 +365,9 @@ if __name__ == "__main__":
     print(f"Sanity check: {len(datamodule.train)} training samples")
     print(f"Sanity check: {len(datamodule.train_dataloader())} training batches")
     # epoch of 242 if only train...
+
+    torch.cuda.empty_cache()
+
     if MANUAL_RESUME:
         trainer.fit(model, datamodule=datamodule, ckpt_path=ckpt_path)
     else:
