@@ -777,9 +777,6 @@ class Model(GaddyBase):
             print("Isinf output:", torch.any(torch.isinf(pred)))
             # raise ValueError("NaN/Inf detected in loss")
 
-        # detach to avoid memory leak
-        loss = loss.detach()
-
         return loss, bz
 
     def _beam_search_step(self, batch):
