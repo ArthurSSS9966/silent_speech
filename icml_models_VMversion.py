@@ -52,8 +52,6 @@ per_index_cache = True  # read each index from disk separately
 
 isotime = datetime.now().isoformat()
 
-
-
 if DEBUG:
     NUM_GPUS = 1
     limit_train_batches = 200
@@ -364,9 +362,22 @@ if __name__ == "__main__":
     print(f"Sanity check: {len(datamodule.train)} training samples")
     print(f"Sanity check: {len(datamodule.train_dataloader())} training batches")
     # epoch of 242 if only train...
-    if MANUAL_RESUME:
-        trainer.fit(model, datamodule=datamodule, ckpt_path=ckpt_path)
-    else:
-        trainer.fit(model, datamodule=datamodule)
+
+    # Start to track memory:
+    torch.cuda.reset_peak_memory_stats()
+    torch.cuda.memory._record_memory_history()
+
+    try:
+        if MANUAL_RESUME:
+            trainer.fit(model, datamodule=datamodule, ckpt_path=ckpt_path)
+        else:
+            trainer.fit(model, datamodule=datamodule)
+    except Exception as e:
+        print(f"Error: {e}")
+        print("Memory usage: {}".format(torch.cuda.memory_summary()))
+    # End to track memory:
+    print("Peak memory usage: {}".format(torch.cuda.max_memory_allocated()))
+
+    torch.cuda.memory._dump_snapshot(f"f{RUN_ID}_snapshot.pt")
 
 
