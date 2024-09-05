@@ -326,19 +326,19 @@ class XtoText(pl.LightningModule):
 
         return loss
 
-    def on_train_batch_end(self, outputs: STEP_OUTPUT, batch: Any, batch_idx: int) -> None:
-        """
-        Called when the train batch ends.
-        """
-
-        # Clear GPU memory cache
-        torch.cuda.empty_cache()
-
-        # Force garbage collection
-        gc.collect()
-
-
-        del outputs, batch
+    # def on_train_batch_end(self, outputs: STEP_OUTPUT, batch: Any, batch_idx: int) -> None:
+    #     """
+    #     Called when the train batch ends.
+    #     """
+    #
+    #     # Clear GPU memory cache
+    #     torch.cuda.empty_cache()
+    #
+    #     # Force garbage collection
+    #     gc.collect()
+    #
+    #
+    #     del outputs, batch
 
     def on_train_epoch_end(self):
         """
