@@ -34,7 +34,7 @@ DEBUG = False
 if DEBUG:
     RUN_ID = "debug"
 else:
-    RUN_ID = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+    RUN_ID = "checkpoints"
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 print(f"Device: {device}")
