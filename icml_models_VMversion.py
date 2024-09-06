@@ -43,7 +43,7 @@ torch.set_float32_matmul_precision("high")  # highest (32-bit) by default
 
 torch.backends.cudnn.allow_tf32 = True  # should be True by default
 run_id = ""
-ckpt_path = ""
+ckpt_path = "/dataFolder/output_arthur2024-09-05_18-52-23/"
 
 per_index_cache = True  # read each index from disk separately
 
