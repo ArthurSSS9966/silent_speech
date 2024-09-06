@@ -4,7 +4,6 @@ import sys
 import numpy as np
 import logging
 import torch
-from torch.utils.data import DistributedSampler
 
 # horrible hack to get around this repo not being a proper python package
 SCRIPT_DIR = os.getcwd()
@@ -20,7 +19,6 @@ librispeech_directory = os.environ["DATA_DIR"]
 from read_emg import EMGDataModule
 from architecture import MONAConfig, MONA
 from datetime import datetime
-from pytorch_lightning.strategies import DDPStrategy
 from data_utils import TextTransform
 from dataloaders import (
     LibrispeechDataset,
@@ -32,7 +30,7 @@ from dataloaders import (
 from functools import partial
 
 ##
-DEBUG = True
+DEBUG = False
 
 if DEBUG:
     RUN_ID = "debug"
@@ -94,7 +92,7 @@ if __name__ == "__main__":
     # TODO: try 512000 and grad_accum=1 (prob OOM but might be faster!)
     # also almost def won't work for supTcon + dtw
     # max_len = 48000 # from best perf with 4 x V100
-    max_len = 128000  #
+    max_len = 48000  #
 
     togglePhones = True
     learning_rate = 3e-4

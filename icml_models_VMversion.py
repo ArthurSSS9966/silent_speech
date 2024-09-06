@@ -1,10 +1,10 @@
 import os
-import pytorch_lightning as pl, pickle
 import sys
 import numpy as np
 import logging
 import torch
 from torch.utils.data import DistributedSampler
+import pytorch_lightning as pl, pickle
 
 # horrible hack to get around this repo not being a proper python package
 SCRIPT_DIR = os.getcwd()
@@ -68,8 +68,8 @@ else:
     NUM_GPUS = 1
     grad_accum = 2  # might need if run on 1 GPU
     precision = "bf16-mixed"
-    limit_train_batches = 100
-    limit_val_batches = 100
+    limit_train_batches = None
+    limit_val_batches = None
     log_neptune = False
     n_epochs = 200
     num_sanity_val_steps = 0  # may prevent crashing of distributed training
