@@ -42,7 +42,6 @@ print(f"Device: {device}")
 torch.set_float32_matmul_precision("high")  # highest (32-bit) by default
 
 torch.backends.cudnn.allow_tf32 = True  # should be True by default
-run_id = ""
 ckpt_path = "/dataFolder/output_arthur2024-09-05_18-52-23/"
 
 per_index_cache = True  # read each index from disk separately
@@ -128,11 +127,12 @@ if __name__ == "__main__":
     torch.backends.cuda.matmul.allow_tf32 = matmul_tf32  # false by default
 
 
-    if ckpt_path != "":
-        raise NotImplementedError("TODO: implement output_directory for ckpt_path")
+    # if ckpt_path != "":
+    #     raise NotImplementedError("TODO: implement output_directory for ckpt_path")
 
 
-    MANUAL_RESUME = False
+    MANUAL_RESUME = True
+
     output_directory = os.path.join(data_dir, f"output_arthur{RUN_ID}")
 
     # needed for using CachedDataset
