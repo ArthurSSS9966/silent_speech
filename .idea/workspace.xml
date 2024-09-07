@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="22d7f079-3e08-4883-9533-9f2e191f6652" name="Changes" comment="Add memory track to track memory issue">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/icml_models_VMversion.py" beforeDir="false" afterPath="$PROJECT_DIR$/icml_models_VMversion.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,26 +37,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.2023-07-17_cache_dataset_with_attrs_.executor": "Run",
-    "Python.2024-01-15_icml_models (1).executor": "Run",
-    "Python.2024-01-15_icml_models.executor": "Run",
-    "Python.Test_Transformer.executor": "Run",
-    "Python.icml_models_local_version.executor": "Debug",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "D:/BlcRepo/OtherCode/Generative_Neuroscience/silent_speech",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.2023-07-17_cache_dataset_with_attrs_.executor&quot;: &quot;Run&quot;,
+    &quot;Python.2024-01-15_icml_models (1).executor&quot;: &quot;Run&quot;,
+    &quot;Python.2024-01-15_icml_models.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Test_Transformer.executor&quot;: &quot;Run&quot;,
+    &quot;Python.icml_models_local_version.executor&quot;: &quot;Debug&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/BlcRepo/OtherCode/Generative_Neuroscience/silent_speech&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\BlcRepo\OtherCode\Generative_Neuroscience\silent_speech" />
@@ -127,6 +126,9 @@
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="true" />
@@ -256,7 +258,7 @@
       <workItem from="1724781773618" duration="12000" />
       <workItem from="1725389338934" duration="7599000" />
       <workItem from="1725476961839" duration="2746000" />
-      <workItem from="1725566861499" duration="4494000" />
+      <workItem from="1725566861499" duration="5364000" />
     </task>
     <task id="LOCAL-00001" summary="VM environment setup file&#10;Train process debug and update with new parameters">
       <option name="closed" value="true" />
@@ -570,7 +572,23 @@
       <option name="project" value="LOCAL" />
       <updated>1725660803894</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="Add memory track to track memory issue">
+      <option name="closed" value="true" />
+      <created>1725669815120</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1725669815120</updated>
+    </task>
+    <task id="LOCAL-00041" summary="Add memory track to track memory issue">
+      <option name="closed" value="true" />
+      <created>1725699597456</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1725699597456</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
