@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="22d7f079-3e08-4883-9533-9f2e191f6652" name="Changes" comment="Add memory track to track memory issue">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/icml_models_VMversion.py" beforeDir="false" afterPath="$PROJECT_DIR$/icml_models_VMversion.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -255,7 +256,7 @@
       <workItem from="1724781773618" duration="12000" />
       <workItem from="1725389338934" duration="7599000" />
       <workItem from="1725476961839" duration="2746000" />
-      <workItem from="1725566861499" duration="3336000" />
+      <workItem from="1725566861499" duration="4494000" />
     </task>
     <task id="LOCAL-00001" summary="VM environment setup file&#10;Train process debug and update with new parameters">
       <option name="closed" value="true" />
@@ -537,7 +538,39 @@
       <option name="project" value="LOCAL" />
       <updated>1725606966516</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="Add memory track to track memory issue">
+      <option name="closed" value="true" />
+      <created>1725660431134</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1725660431134</updated>
+    </task>
+    <task id="LOCAL-00037" summary="Add memory track to track memory issue">
+      <option name="closed" value="true" />
+      <created>1725660504661</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1725660504661</updated>
+    </task>
+    <task id="LOCAL-00038" summary="Add memory track to track memory issue">
+      <option name="closed" value="true" />
+      <created>1725660759412</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1725660759412</updated>
+    </task>
+    <task id="LOCAL-00039" summary="Add memory track to track memory issue">
+      <option name="closed" value="true" />
+      <created>1725660803893</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1725660803894</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
