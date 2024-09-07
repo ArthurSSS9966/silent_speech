@@ -42,7 +42,7 @@ print(f"Device: {device}")
 torch.set_float32_matmul_precision("high")  # highest (32-bit) by default
 
 torch.backends.cudnn.allow_tf32 = True  # should be True by default
-ckpt_path = "~/silent_speech/dataFolder/output_arthur2024-09-05_18-52-23/lightning_logs/version_0/checkpoints/epoch=91-step=4600.ckpt"
+ckpt_path = "~/silent_speech/dataFolder/output_arthurcheckpoints/lightning_logs/version_0/checkpoints/epoch=91-step=4600.ckpt"
 
 per_index_cache = True  # read each index from disk separately
 
