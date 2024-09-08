@@ -40,9 +40,13 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 print(f"Device: {device}")
 
 torch.set_float32_matmul_precision("high")  # highest (32-bit) by default
-
 torch.backends.cudnn.allow_tf32 = True  # should be True by default
-ckpt_path = "~/silent_speech/dataFolder/output_arthurcheckpoints/lightning_logs/version_1/checkpoints"
+
+ckpt_path = "~/silent_speech/dataFolder/output_arthurcheckpoints/lightning_logs/"
+last_verison = os.listdir(os.path.expanduser(ckpt_path))[-1]
+last_verison = os.path.join(last_verison, "checkpoints")
+
+ckpt_path = os.path.join(ckpt_path, last_verison)
 # Find the .ckpt file in the checkpoints folder
 ckpt_path = os.path.expanduser(ckpt_path)
 ckpt_path = os.path.join(ckpt_path, os.listdir(ckpt_path)[0])
