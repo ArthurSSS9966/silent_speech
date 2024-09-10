@@ -42,17 +42,6 @@ print(f"Device: {device}")
 torch.set_float32_matmul_precision("high")  # highest (32-bit) by default
 torch.backends.cudnn.allow_tf32 = True  # should be True by default
 
-ckpt_path = "~/silent_speech/dataFolder/output_arthurcheckpoints/lightning_logs/"
-# Find the largest version in the checkpoints folder
-ckpt_path = os.path.expanduser(ckpt_path)
-last_verison = sorted(os.listdir(ckpt_path))[-1]
-last_verison = os.path.join(last_verison, "checkpoints")
-
-ckpt_path = os.path.join(ckpt_path, last_verison)
-# Find the .ckpt file in the checkpoints folder
-ckpt_path = os.path.expanduser(ckpt_path)
-ckpt_path = os.path.join(ckpt_path, os.listdir(ckpt_path)[0])
-
 per_index_cache = True  # read each index from disk separately
 
 isotime = datetime.now().isoformat()
@@ -138,6 +127,19 @@ if __name__ == "__main__":
 
 
     MANUAL_RESUME = False
+
+    if MANUAL_RESUME:
+        ckpt_path = "~/silent_speech/dataFolder/output_arthurcheckpoints/lightning_logs/"
+        # Find the largest version in the checkpoints folder
+        ckpt_path = os.path.expanduser(ckpt_path)
+
+        last_verison = sorted(os.listdir(ckpt_path))[-1]
+        last_verison = os.path.join(last_verison, "checkpoints")
+
+        ckpt_path = os.path.join(ckpt_path, last_verison)
+        # Find the .ckpt file in the checkpoints folder
+        ckpt_path = os.path.expanduser(ckpt_path)
+        ckpt_path = os.path.join(ckpt_path, os.listdir(ckpt_path)[0])
 
     output_directory = os.path.join(data_dir, f"output_arthur{RUN_ID}")
 
