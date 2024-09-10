@@ -81,6 +81,21 @@ data_dir = "dataFolder"
 librispeech_directory = "dataFolder"
 lm_directory = os.getcwd()
 
+MANUAL_RESUME = False
+
+if MANUAL_RESUME:
+    ckpt_path = "~/silent_speech/dataFolder/output_arthurcheckpoints/lightning_logs/"
+    # Find the largest version in the checkpoints folder
+    ckpt_path = os.path.expanduser(ckpt_path)
+
+    last_verison = sorted(os.listdir(ckpt_path))[-1]
+    last_verison = os.path.join(last_verison, "checkpoints")
+
+    ckpt_path = os.path.join(ckpt_path, last_verison)
+    # Find the .ckpt file in the checkpoints folder
+    ckpt_path = os.path.expanduser(ckpt_path)
+    ckpt_path = os.path.join(ckpt_path, os.listdir(ckpt_path)[0])
+
 normalizers_file = os.path.join(SCRIPT_DIR, "normalizers.pkl")
 
 if __name__ == "__main__":
@@ -120,26 +135,6 @@ if __name__ == "__main__":
     matmul_tf32 = True
 
     torch.backends.cuda.matmul.allow_tf32 = matmul_tf32  # false by default
-
-
-    # if ckpt_path != "":
-    #     raise NotImplementedError("TODO: implement output_directory for ckpt_path")
-
-
-    MANUAL_RESUME = False
-
-    if MANUAL_RESUME:
-        ckpt_path = "~/silent_speech/dataFolder/output_arthurcheckpoints/lightning_logs/"
-        # Find the largest version in the checkpoints folder
-        ckpt_path = os.path.expanduser(ckpt_path)
-
-        last_verison = sorted(os.listdir(ckpt_path))[-1]
-        last_verison = os.path.join(last_verison, "checkpoints")
-
-        ckpt_path = os.path.join(ckpt_path, last_verison)
-        # Find the .ckpt file in the checkpoints folder
-        ckpt_path = os.path.expanduser(ckpt_path)
-        ckpt_path = os.path.join(ckpt_path, os.listdir(ckpt_path)[0])
 
     output_directory = os.path.join(data_dir, f"output_arthur{RUN_ID}")
 

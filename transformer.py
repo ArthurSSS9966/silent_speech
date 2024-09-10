@@ -42,7 +42,7 @@ class TransformerEncoderLayer(nn.Module):
         # https://iclr-blog-track.github.io/2022/03/25/unnormalized-resnets/#moment-control
         self.beta = beta
         self.activation = nn.ReLU() #TODO: Use GELU
-        self.batch_first = True  # Added because to fit the nn.TransformerEncoderLayer type check
+        self.batch_first = False  # Added because to fit the nn.TransformerEncoderLayer type check
 
     def forward(self, src: torch.Tensor, src_mask: Optional[torch.Tensor] = None, src_key_padding_mask: Optional[torch.Tensor] = None, is_causal=None) -> torch.Tensor:
         r"""Pass the input through the encoder layer.
