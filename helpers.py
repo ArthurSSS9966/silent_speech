@@ -280,20 +280,23 @@ def nep_get(logger, key):
         raise NotImplementedError("don't know how to fetch values")
 
 
-def load_model_from_id(run_id, choose="best"):
+def load_model_from_id(choose="best", **kwargs):
     assert choose in ["best", "last"]
 
-    neptune_logger = NeptuneLogger(
-        run=neptune.init_run(
-            with_id=run_id,
-            api_token=os.environ["NEPTUNE_API_TOKEN"],
-            mode="read-only",
-            project="neuro/Gaddy",
-        ),
-        log_model_checkpoints=False,
-    )
-    output_directory = nep_get(neptune_logger, "output_directory")
-    hparams = nep_get(neptune_logger, "training/hyperparams")
+    if choose == "best":
+        run_id = kwargs.get("run_id", "000")
+
+        neptune_logger = NeptuneLogger(
+            run=neptune.init_run(
+                with_id=run_id,
+                api_token=os.environ["NEPTUNE_API_TOKEN"],
+                mode="read-only",
+                project="neuro/Gaddy",
+            ),
+            log_model_checkpoints=False,
+        )
+        output_directory = nep_get(neptune_logger, "output_directory")
+        hparams = nep_get(neptune_logger, "training/hyperparams")
     if choose == "best":
         ckpt_paths, wers = get_best_ckpts(output_directory, n=1)
         wer = wers[0]
