@@ -137,7 +137,7 @@ if __name__ == "__main__":
     #     raise NotImplementedError("TODO: implement output_directory for ckpt_path")
 
 
-    MANUAL_RESUME = True
+    MANUAL_RESUME = False
 
     output_directory = os.path.join(data_dir, f"output_arthur{RUN_ID}")
 
