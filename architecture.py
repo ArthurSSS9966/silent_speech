@@ -721,7 +721,7 @@ class Model(GaddyBase):
 
         x = x_raw
         x = x.transpose(0, 1)  # put time first
-        # print(f"before transformer: {x.shape=}")
+        print(f"before transformer: {x.shape=}")
         x = self.transformer(x)
         x = x.transpose(0, 1)
 
