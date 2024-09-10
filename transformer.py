@@ -67,7 +67,7 @@ class MultiHeadAttention(nn.Module):
   def __init__(self, d_model=256, n_head=4, dropout=0.1, relative_positional=True, relative_positional_distance=100):
     super().__init__()
     self.d_model = d_model
-    self.batch_first = True
+    self.batch_first = False
     self.n_head = n_head
     d_qkv = d_model // n_head
     assert d_qkv * n_head == d_model, 'd_model must be divisible by n_head'
