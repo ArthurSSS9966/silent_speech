@@ -721,7 +721,7 @@ class Model(GaddyBase):
 
         x = x_raw
         x = x.transpose(0, 1)  # put time first
-        print(f"before transformer: {x.shape=}")
+        # print(f"before transformer: {x.shape=}")
         x = self.transformer(x)
         x = x.transpose(0, 1)
 
@@ -1383,7 +1383,7 @@ class MONA(GaddyBase):
     def decoder(self, x):
         """Predict characters from latent space (B x T/8 x D)"""
         x = x.transpose(0, 1)  # put time first
-        # print(f"before transformer: {x.shape=}")
+        print(f"before transformer: {x.shape=}")
         x = self.transformer(x)
         x = x.transpose(0, 1)
         x = self.w_out(x)
