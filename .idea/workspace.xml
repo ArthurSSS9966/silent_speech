@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="22d7f079-3e08-4883-9533-9f2e191f6652" name="Changes" comment="Set the batch first in transformer.py to True">
+    <list default="true" id="22d7f079-3e08-4883-9533-9f2e191f6652" name="Changes" comment="Reset the batch first to False">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/architecture.py" beforeDir="false" afterPath="$PROJECT_DIR$/architecture.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/icml_models_local_version.py" beforeDir="false" afterPath="$PROJECT_DIR$/icml_models_local_version.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lexicon.txt" beforeDir="false" afterPath="$PROJECT_DIR$/lexicon.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tokens.txt" beforeDir="false" afterPath="$PROJECT_DIR$/tokens.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/icml_models_VMversion.py" beforeDir="false" afterPath="$PROJECT_DIR$/icml_models_VMversion.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -265,15 +262,7 @@
       <workItem from="1725990415969" duration="7894000" />
       <workItem from="1726015128070" duration="421000" />
       <workItem from="1726017010022" duration="604000" />
-      <workItem from="1726026161811" duration="4655000" />
-    </task>
-    <task id="LOCAL-00002" summary="VM environment setup file&#10;Train process debug and update with new parameters">
-      <option name="closed" value="true" />
-      <created>1723596093698</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1723596093698</updated>
+      <workItem from="1726026161811" duration="6657000" />
     </task>
     <task id="LOCAL-00003" summary="VM environment setup file&#10;Train process debug and update with new parameters">
       <option name="closed" value="true" />
@@ -659,7 +648,15 @@
       <option name="project" value="LOCAL" />
       <updated>1725998342790</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="Reset the batch first to False">
+      <option name="closed" value="true" />
+      <created>1726072152947</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1726072152947</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -684,7 +681,8 @@
     <MESSAGE value="Add empty_cache() to address OOM issue" />
     <MESSAGE value="Add memory track to track memory issue" />
     <MESSAGE value="Set the batch first in transformer.py to True" />
-    <option name="LAST_COMMIT_MESSAGE" value="Set the batch first in transformer.py to True" />
+    <MESSAGE value="Reset the batch first to False" />
+    <option name="LAST_COMMIT_MESSAGE" value="Reset the batch first to False" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/silent_speech$2024_01_15_icml_models.coverage" NAME="2024-01-15_icml_models Coverage Results" MODIFIED="1723008489653" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/notebooks/tyler" />

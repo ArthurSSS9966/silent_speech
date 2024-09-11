@@ -44,17 +44,6 @@ print(f"Device: {device}")
 torch.set_float32_matmul_precision("high")  # highest (32-bit) by default
 torch.backends.cudnn.allow_tf32 = True  # should be True by default
 
-ckpt_path = "~/silent_speech/dataFolder/output_checkpoints/lightning_logs/"
-# Find the largest version in the checkpoints folder
-ckpt_path = os.path.expanduser(ckpt_path)
-last_verison = sorted(os.listdir(ckpt_path))[-1]
-last_verison = os.path.join(last_verison, "checkpoints")
-
-ckpt_path = os.path.join(ckpt_path, last_verison)
-# Find the .ckpt file in the checkpoints folder
-ckpt_path = os.path.expanduser(ckpt_path)
-ckpt_path = os.path.join(ckpt_path, os.listdir(ckpt_path)[0])
-
 per_index_cache = True  # read each index from disk separately
 
 isotime = datetime.now().isoformat()
@@ -96,6 +85,22 @@ lm_directory = os.getcwd()
 
 normalizers_file = os.path.join(SCRIPT_DIR, "normalizers.pkl")
 
+MANUAL_RESUME = False
+
+if MANUAL_RESUME:
+    ckpt_path = "~/silent_speech/dataFolder/output_arthurcheckpoints/lightning_logs/"
+    # Find the largest version in the checkpoints folder
+    ckpt_path = os.path.expanduser(ckpt_path)
+
+    last_verison = sorted(os.listdir(ckpt_path))[-1]
+    last_verison = os.path.join(last_verison, "checkpoints")
+
+    ckpt_path = os.path.join(ckpt_path, last_verison)
+    # Find the .ckpt file in the checkpoints folder
+    ckpt_path = os.path.expanduser(ckpt_path)
+    ckpt_path = os.path.join(ckpt_path, os.listdir(ckpt_path)[0])
+
+
 if __name__ == "__main__":
 
     # base_bzs = [1, 16, 32, 64]
@@ -133,13 +138,6 @@ if __name__ == "__main__":
     matmul_tf32 = True
 
     torch.backends.cuda.matmul.allow_tf32 = matmul_tf32  # false by default
-
-
-    # if ckpt_path != "":
-    #     raise NotImplementedError("TODO: implement output_directory for ckpt_path")
-
-
-    MANUAL_RESUME = True
 
     output_directory = os.path.join(data_dir, f"output_{RUN_ID}")
 
@@ -343,7 +341,7 @@ if __name__ == "__main__":
     monitor = "val/silent_emg_wer"
     save_top_k = 10
 
-    wandb_logger = WandbLogger(project="silent_speech", name=f"{RUN_ID}", save_dir=os.join(output_directory, "wandb"))
+    wandb_logger = WandbLogger(project="silent_speech", name=f"{RUN_ID}", save_dir=os.path.join(output_directory, "wandb"))
 
     trainer = pl.Trainer(
         max_epochs=configVM.num_train_epochs,
