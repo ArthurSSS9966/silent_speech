@@ -11,7 +11,7 @@ sys.path.append(SCRIPT_DIR)
 # on my local machine
 scratch_directory = "D:\\BlcRepo\\OtherCode\\Generative_Neuroscience\\silent_speech\\scratch"
 lm_directory = "D:\\BlcRepo\\OtherCode\\Generative_Neuroscience\\silent_speech"
-SLURM_REQUEUE = False
+
 # Set the local data directory environment variable
 os.environ["DATA_DIR"] = "D:/Blcdata/hf_cache"
 librispeech_directory = os.environ["DATA_DIR"]
@@ -30,7 +30,7 @@ from dataloaders import (
 from functools import partial
 
 ##
-DEBUG = False
+DEBUG = True
 
 if DEBUG:
     RUN_ID = "debug"
@@ -40,7 +40,6 @@ else:
 torch.set_float32_matmul_precision("high")  # highest (32-bit) by default
 
 torch.backends.cudnn.allow_tf32 = True  # should be True by default
-run_id = ""
 ckpt_path = ""
 
 per_index_cache = True  # read each index from disk separately
@@ -291,7 +290,7 @@ if __name__ == "__main__":
     print(f"Sanity check: {len(datamodule.train)} training samples")
     print(f"Sanity check: {len(datamodule.train_dataloader())} training batches")
     # epoch of 242 if only train...
-    if MANUAL_RESUME or SLURM_REQUEUE:
+    if MANUAL_RESUME:
         trainer.fit(model, datamodule=datamodule, ckpt_path=ckpt_path)
     else:
         trainer.fit(model, datamodule=datamodule)

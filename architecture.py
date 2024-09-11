@@ -4,22 +4,17 @@ from torch import nn
 import torch.nn.functional as F
 from pytorch_lightning.utilities.types import STEP_OUTPUT
 from transformer import TransformerEncoderLayer
-# from torch.nn import TransformerEncoderLayer
 from data_utils import combine_fixed_length, decollate_tensor
 
-import sys, os, jiwer
-import pytorch_lightning as pl, torchmetrics
+import os, jiwer
+import pytorch_lightning as pl
 from torchaudio.models.decoder import ctc_decoder
-from torchaudio.functional import edit_distance
 from s4 import S4
 from data_utils import TextTransform, token_error_rate
-# from magneto.models.hyena import HyenaOperator
-# from flash_attn.modules.block import Block
-# from magneto.models.s4d import S4D
 
 from pytorch_lightning.profilers import PassThroughProfiler
 from dataclasses import dataclass, field
-from typing import Tuple, List, Union, Any
+from typing import List, Union, Any
 from dataloaders import split_batch_into_emg_neural_audio
 from contrastive import (
     nobatch_cross_contrastive_loss,
@@ -31,7 +26,6 @@ from pytorch_lightning.loggers import NeptuneLogger
 from align import align_from_distances
 from torch.optim.lr_scheduler import LambdaLR
 
-from collections import defaultdict
 from warnings import warn
 
 import gc
@@ -1383,7 +1377,7 @@ class MONA(GaddyBase):
     def decoder(self, x):
         """Predict characters from latent space (B x T/8 x D)"""
         x = x.transpose(0, 1)  # put time first
-        # print(f"before transformer: {x.shape=}")
+        print(f"before transformer: {x.shape=}")
         x = self.transformer(x)
         x = x.transpose(0, 1)
         x = self.w_out(x)
