@@ -8,6 +8,10 @@ import pytorch_lightning as pl, pickle
 
 from lightning.pytorch.loggers import WandbLogger
 
+import wandb
+
+wandb.login()
+
 # horrible hack to get around this repo not being a proper python package
 SCRIPT_DIR = os.getcwd()
 sys.path.append(SCRIPT_DIR)
