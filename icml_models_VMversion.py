@@ -6,6 +6,8 @@ import torch
 from torch.utils.data import DistributedSampler
 import pytorch_lightning as pl, pickle
 
+from lightning.pytorch.loggers import WandbLogger
+
 # horrible hack to get around this repo not being a proper python package
 SCRIPT_DIR = os.getcwd()
 sys.path.append(SCRIPT_DIR)
@@ -42,7 +44,7 @@ print(f"Device: {device}")
 torch.set_float32_matmul_precision("high")  # highest (32-bit) by default
 torch.backends.cudnn.allow_tf32 = True  # should be True by default
 
-ckpt_path = "~/silent_speech/dataFolder/output_arthurcheckpoints/lightning_logs/"
+ckpt_path = "~/silent_speech/dataFolder/output_checkpoints/lightning_logs/"
 # Find the largest version in the checkpoints folder
 ckpt_path = os.path.expanduser(ckpt_path)
 last_verison = sorted(os.listdir(ckpt_path))[-1]
@@ -139,7 +141,7 @@ if __name__ == "__main__":
 
     MANUAL_RESUME = True
 
-    output_directory = os.path.join(data_dir, f"output_arthur{RUN_ID}")
+    output_directory = os.path.join(data_dir, f"output_{RUN_ID}")
 
     # needed for using CachedDataset
     emg_datamodule = EMGDataModule(
@@ -341,7 +343,7 @@ if __name__ == "__main__":
     monitor = "val/silent_emg_wer"
     save_top_k = 10
 
-    neptune_logger = None
+    wandb_logger = WandbLogger(project="silent_speech", name=f"{RUN_ID}", save_dir=os.join(output_directory, "wandb"))
 
     trainer = pl.Trainer(
         max_epochs=configVM.num_train_epochs,
@@ -349,7 +351,7 @@ if __name__ == "__main__":
         accelerator="auto",
         accumulate_grad_batches=configVM.gradient_accumulation_steps,
         gradient_clip_val=1,  # was 0.5 for best 26.x% run, gaddy used 10, llama 2 uses 1.0
-        logger=neptune_logger,
+        logger=wandb_logger,
         default_root_dir=output_directory,
         callbacks=callbacks,
         precision=configVM.precision,
