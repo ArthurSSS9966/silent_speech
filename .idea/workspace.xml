@@ -7,6 +7,9 @@
     <list default="true" id="22d7f079-3e08-4883-9533-9f2e191f6652" name="Changes" comment="Set the batch first in transformer.py to True">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/architecture.py" beforeDir="false" afterPath="$PROJECT_DIR$/architecture.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/icml_models_local_version.py" beforeDir="false" afterPath="$PROJECT_DIR$/icml_models_local_version.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lexicon.txt" beforeDir="false" afterPath="$PROJECT_DIR$/lexicon.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tokens.txt" beforeDir="false" afterPath="$PROJECT_DIR$/tokens.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,26 +41,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Python.2023-07-17_cache_dataset_with_attrs_.executor&quot;: &quot;Run&quot;,
-    &quot;Python.2024-01-15_icml_models (1).executor&quot;: &quot;Run&quot;,
-    &quot;Python.2024-01-15_icml_models.executor&quot;: &quot;Run&quot;,
-    &quot;Python.Test_Transformer.executor&quot;: &quot;Run&quot;,
-    &quot;Python.icml_models_local_version.executor&quot;: &quot;Debug&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/BlcRepo/OtherCode/Generative_Neuroscience/silent_speech&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python.2023-07-17_cache_dataset_with_attrs_.executor": "Run",
+    "Python.2024-01-15_icml_models (1).executor": "Run",
+    "Python.2024-01-15_icml_models.executor": "Run",
+    "Python.Test_Transformer.executor": "Run",
+    "Python.icml_models_local_version.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "D:/BlcRepo/OtherCode/Generative_Neuroscience/silent_speech",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\BlcRepo\OtherCode\Generative_Neuroscience\silent_speech" />
@@ -127,9 +130,6 @@
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="true" />
@@ -262,15 +262,10 @@
       <workItem from="1725566861499" duration="5364000" />
       <workItem from="1725700143349" duration="198000" />
       <workItem from="1725786764263" duration="880000" />
-      <workItem from="1725990415969" duration="7015000" />
-    </task>
-    <task id="LOCAL-00001" summary="VM environment setup file&#10;Train process debug and update with new parameters">
-      <option name="closed" value="true" />
-      <created>1723594093524</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1723594093524</updated>
+      <workItem from="1725990415969" duration="7894000" />
+      <workItem from="1726015128070" duration="421000" />
+      <workItem from="1726017010022" duration="604000" />
+      <workItem from="1726026161811" duration="4655000" />
     </task>
     <task id="LOCAL-00002" summary="VM environment setup file&#10;Train process debug and update with new parameters">
       <option name="closed" value="true" />
@@ -648,7 +643,23 @@
       <option name="project" value="LOCAL" />
       <updated>1725997125052</updated>
     </task>
-    <option name="localTasksCounter" value="49" />
+    <task id="LOCAL-00049" summary="Set the batch first in transformer.py to True">
+      <option name="closed" value="true" />
+      <created>1725997685905</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1725997685905</updated>
+    </task>
+    <task id="LOCAL-00050" summary="Set the batch first in transformer.py to True">
+      <option name="closed" value="true" />
+      <created>1725998342789</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1725998342790</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -679,7 +690,7 @@
     <SUITE FILE_PATH="coverage/silent_speech$2024_01_15_icml_models.coverage" NAME="2024-01-15_icml_models Coverage Results" MODIFIED="1723008489653" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/notebooks/tyler" />
     <SUITE FILE_PATH="coverage/silent_speech$2023_07_17_cache_dataset_with_attrs_.coverage" NAME="2023-07-17_cache_dataset_with_attrs_ Coverage Results" MODIFIED="1722851708169" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/notebooks/tyler" />
     <SUITE FILE_PATH="coverage/2024_01_15_icml_models_py$icml_models_local_version.coverage" NAME="icml_models_local_version Coverage Results" MODIFIED="1723674141633" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/silent_speech_py$icml_models_local_version.coverage" NAME="icml_models_local_version Coverage Results" MODIFIED="1725569263243" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/silent_speech_py$icml_models_local_version.coverage" NAME="icml_models_local_version Coverage Results" MODIFIED="1726030807124" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/silent_speech$Test_Transformer.coverage" NAME="Test_Transformer Coverage Results" MODIFIED="1723021360511" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/silent_speech$2024_01_15_icml_models__1_.coverage" NAME="2024-01-15_icml_models (1) Coverage Results" MODIFIED="1723021838030" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
