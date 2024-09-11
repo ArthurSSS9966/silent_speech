@@ -376,9 +376,9 @@ if __name__ == "__main__":
     print(f"Sanity check: {len(datamodule.train_dataloader())} training batches")
     # epoch of 242 if only train...
 
-    # Start to track memory:
-    torch.cuda.reset_peak_memory_stats()
-    torch.cuda.memory._record_memory_history()
+    # # Start to track memory:
+    # torch.cuda.reset_peak_memory_stats()
+    # torch.cuda.memory._record_memory_history()
 
     try:
         if MANUAL_RESUME:
@@ -391,7 +391,7 @@ if __name__ == "__main__":
     # End to track memory:
     print("Peak memory usage: {}".format(torch.cuda.max_memory_allocated()))
 
-    torch.cuda.memory._dump_snapshot(f"f{RUN_ID}_snapshot.pickle")
+    # torch.cuda.memory._dump_snapshot(f"f{RUN_ID}_snapshot.pickle")
 
 
 # if __name__ == '__main__':
