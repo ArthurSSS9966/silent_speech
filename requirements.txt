@@ -63,7 +63,6 @@ bark~=0.1.5
 kenlm~=0.2.0
 setuptools~=71.0.4
 torch~=2.4.0
-pykeops~=2.2.3
 tqdm~=4.66.4
 torchmetrics~=1.4.0.post0
 typing_extensions~=4.12.2
