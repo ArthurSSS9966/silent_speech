@@ -8,6 +8,12 @@ import pytorch_lightning as pl, pickle
 
 from lightning.pytorch.loggers import WandbLogger
 
+import wandb
+
+import argparse
+
+wandb.login()
+
 # horrible hack to get around this repo not being a proper python package
 SCRIPT_DIR = os.getcwd()
 sys.path.append(SCRIPT_DIR)
@@ -102,6 +108,7 @@ if MANUAL_RESUME:
 
 
 if __name__ == "__main__":
+# def run(MANUAL_RESUME=False):
 
     # base_bzs = [1, 16, 32, 64]
     base_bz = 32 #TODO: Test this parameter of the speed [1,16,32,64]
@@ -387,3 +394,11 @@ if __name__ == "__main__":
     torch.cuda.memory._dump_snapshot(f"f{RUN_ID}_snapshot.pickle")
 
 
+# if __name__ == '__main__':
+#     parser = argparse.ArgumentParser(description='Run the VM version of the MONA model.')
+#     parser.add_argument('--resume', dest='resume', action='store_true', help='Resume training from a checkpoint.')
+#     parser.add_argument('--no-resume', dest='resume', action='store_false', help='Start training from scratch.')
+#     parser.set_defaults(resume=False)
+#     args = parser.parse_args()
+
+    # run(args.resume)
