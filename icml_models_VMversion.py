@@ -10,6 +10,8 @@ from lightning.pytorch.loggers import WandbLogger
 
 import wandb
 
+import argparse
+
 wandb.login()
 
 # horrible hack to get around this repo not being a proper python package
@@ -100,7 +102,7 @@ lm_directory = os.getcwd()
 
 normalizers_file = os.path.join(SCRIPT_DIR, "normalizers.pkl")
 
-if __name__ == "__main__":
+def run(MANUAL_RESUME=False):
 
     # base_bzs = [1, 16, 32, 64]
     base_bz = 32 #TODO: Test this parameter of the speed [1,16,32,64]
@@ -137,13 +139,6 @@ if __name__ == "__main__":
     matmul_tf32 = True
 
     torch.backends.cuda.matmul.allow_tf32 = matmul_tf32  # false by default
-
-
-    # if ckpt_path != "":
-    #     raise NotImplementedError("TODO: implement output_directory for ckpt_path")
-
-
-    MANUAL_RESUME = True
 
     output_directory = os.path.join(data_dir, f"output_{RUN_ID}")
 
@@ -393,3 +388,11 @@ if __name__ == "__main__":
     torch.cuda.memory._dump_snapshot(f"f{RUN_ID}_snapshot.pickle")
 
 
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description='Run the VM version of the MONA model.')
+    parser.add_argument('--resume', dest='resume', action='store_true', help='Resume training from a checkpoint.')
+    parser.add_argument('--no-resume', dest='resume', action='store_false', help='Start training from scratch.')
+    parser.set_defaults(resume=False)
+    args = parser.parse_args()
+
+    run(args.resume)
