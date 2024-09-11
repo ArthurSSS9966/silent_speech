@@ -91,24 +91,21 @@ lm_directory = os.getcwd()
 
 normalizers_file = os.path.join(SCRIPT_DIR, "normalizers.pkl")
 
-MANUAL_RESUME = False
+# if __name__ == "__main__":
+def run(MANUAL_RESUME=False):
 
-if MANUAL_RESUME:
-    ckpt_path = "~/silent_speech/dataFolder/output_arthurcheckpoints/lightning_logs/"
-    # Find the largest version in the checkpoints folder
-    ckpt_path = os.path.expanduser(ckpt_path)
+    if MANUAL_RESUME:
+        ckpt_path = "~/silent_speech/dataFolder/output_arthurcheckpoints/lightning_logs/"
+        # Find the largest version in the checkpoints folder
+        ckpt_path = os.path.expanduser(ckpt_path)
 
-    last_verison = sorted(os.listdir(ckpt_path))[-1]
-    last_verison = os.path.join(last_verison, "checkpoints")
+        last_verison = sorted(os.listdir(ckpt_path))[-1]
+        last_verison = os.path.join(last_verison, "checkpoints")
 
-    ckpt_path = os.path.join(ckpt_path, last_verison)
-    # Find the .ckpt file in the checkpoints folder
-    ckpt_path = os.path.expanduser(ckpt_path)
-    ckpt_path = os.path.join(ckpt_path, os.listdir(ckpt_path)[0])
-
-
-if __name__ == "__main__":
-# def run(MANUAL_RESUME=False):
+        ckpt_path = os.path.join(ckpt_path, last_verison)
+        # Find the .ckpt file in the checkpoints folder
+        ckpt_path = os.path.expanduser(ckpt_path)
+        ckpt_path = os.path.join(ckpt_path, os.listdir(ckpt_path)[0])
 
     # base_bzs = [1, 16, 32, 64]
     base_bz = 32 #TODO: Test this parameter of the speed [1,16,32,64]
@@ -139,7 +136,6 @@ if __name__ == "__main__":
     frac_vocal /= 2
     frac_librispeech = 0.5
     # TODO: should sweep librispeech ratios...
-    # batch_class_proportions: np.ndarray = field(default_factory=lambda: np.array([frac_semg, frac_vocal, frac_librispeech]))
     batch_class_proportions = np.array([frac_semg, frac_vocal, frac_librispeech])
     latest_epoch = -1
     matmul_tf32 = True
@@ -394,11 +390,11 @@ if __name__ == "__main__":
     # torch.cuda.memory._dump_snapshot(f"f{RUN_ID}_snapshot.pickle")
 
 
-# if __name__ == '__main__':
-#     parser = argparse.ArgumentParser(description='Run the VM version of the MONA model.')
-#     parser.add_argument('--resume', dest='resume', action='store_true', help='Resume training from a checkpoint.')
-#     parser.add_argument('--no-resume', dest='resume', action='store_false', help='Start training from scratch.')
-#     parser.set_defaults(resume=False)
-#     args = parser.parse_args()
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description='Run the VM version of the MONA model.')
+    parser.add_argument('--resume', dest='resume', action='store_true', help='Resume training from a checkpoint.')
+    parser.add_argument('--no-resume', dest='resume', action='store_false', help='Start training from scratch.')
+    parser.set_defaults(resume=False)
+    args = parser.parse_args()
 
-    # run(args.resume)
+    run(args.resume)
